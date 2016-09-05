@@ -9,10 +9,9 @@
 /* Begin PBXBuildFile section */
 		DA15F2481D7DDCF7008E6310 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA15F2471D7DDCF7008E6310 /* main.m */; };
 		DA15F24B1D7DDCF7008E6310 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA15F24A1D7DDCF7008E6310 /* AppDelegate.m */; };
-		DA15F24E1D7DDCF7008E6310 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA15F24D1D7DDCF7008E6310 /* ViewController.m */; };
-		DA15F2511D7DDCF7008E6310 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA15F24F1D7DDCF7008E6310 /* Main.storyboard */; };
 		DA15F2531D7DDCF7008E6310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA15F2521D7DDCF7008E6310 /* Assets.xcassets */; };
 		DA15F2561D7DDCF7008E6310 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA15F2541D7DDCF7008E6310 /* LaunchScreen.storyboard */; };
+		DA15F2601D7DDD3F008E6310 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA15F25F1D7DDD3F008E6310 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +19,11 @@
 		DA15F2471D7DDCF7008E6310 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DA15F2491D7DDCF7008E6310 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DA15F24A1D7DDCF7008E6310 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DA15F24C1D7DDCF7008E6310 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DA15F24D1D7DDCF7008E6310 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		DA15F2501D7DDCF7008E6310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA15F2521D7DDCF7008E6310 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA15F2551D7DDCF7008E6310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA15F2571D7DDCF7008E6310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA15F25E1D7DDD3F008E6310 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Controllers/LoginViewController.h; sourceTree = "<group>"; };
+		DA15F25F1D7DDD3F008E6310 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controllers/LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +56,9 @@
 		DA15F2451D7DDCF7008E6310 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
+				DA15F25D1D7DDD15008E6310 /* Controllers */,
 				DA15F2491D7DDCF7008E6310 /* AppDelegate.h */,
 				DA15F24A1D7DDCF7008E6310 /* AppDelegate.m */,
-				DA15F24C1D7DDCF7008E6310 /* ViewController.h */,
-				DA15F24D1D7DDCF7008E6310 /* ViewController.m */,
-				DA15F24F1D7DDCF7008E6310 /* Main.storyboard */,
 				DA15F2521D7DDCF7008E6310 /* Assets.xcassets */,
 				DA15F2541D7DDCF7008E6310 /* LaunchScreen.storyboard */,
 				DA15F2571D7DDCF7008E6310 /* Info.plist */,
@@ -77,6 +73,15 @@
 				DA15F2471D7DDCF7008E6310 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA15F25D1D7DDD15008E6310 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DA15F25E1D7DDD3F008E6310 /* LoginViewController.h */,
+				DA15F25F1D7DDD3F008E6310 /* LoginViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +143,6 @@
 			files = (
 				DA15F2561D7DDCF7008E6310 /* LaunchScreen.storyboard in Resources */,
 				DA15F2531D7DDCF7008E6310 /* Assets.xcassets in Resources */,
-				DA15F2511D7DDCF7008E6310 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,23 +153,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA15F24E1D7DDCF7008E6310 /* ViewController.m in Sources */,
 				DA15F24B1D7DDCF7008E6310 /* AppDelegate.m in Sources */,
 				DA15F2481D7DDCF7008E6310 /* main.m in Sources */,
+				DA15F2601D7DDD3F008E6310 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DA15F24F1D7DDCF7008E6310 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DA15F2501D7DDCF7008E6310 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DA15F2541D7DDCF7008E6310 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -264,6 +260,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = VKPhotoViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = st.SK.VKPhotoViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -275,6 +272,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = VKPhotoViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = st.SK.VKPhotoViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
