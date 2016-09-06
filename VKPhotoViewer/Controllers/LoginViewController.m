@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import <VK-ios-sdk/VKSdk.h>
 
 static CGFloat const BUTTON_WIDTH = 90.0f;
 static CGFloat const BUTTON_HEIGHT = 40.0f;
