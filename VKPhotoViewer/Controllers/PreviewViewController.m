@@ -8,11 +8,13 @@
 
 #import "PreviewViewController.h"
 #import <VK-ios-sdk/VKSdk.h>
+#import "ActionButton.h"
 
 static CGFloat const BUTTON_WIDTH = 90.0f;
 static CGFloat const BUTTON_HEIGHT = 40.0f;
+static NSString *const BUTTON_TITLE = @"Logout";
 
-@interface PreviewViewController ()
+@interface PreviewViewController () <ActionButtonDelegate>
 
 @end
 
@@ -29,19 +31,19 @@ static CGFloat const BUTTON_HEIGHT = 40.0f;
 - (void)addPreviewView {
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIButton *logoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    logoutButton.frame = CGRectMake(0.0f,
-                                   16.0f,
-                                   BUTTON_WIDTH,
-                                   BUTTON_HEIGHT);
-    [logoutButton setTitle:@"Logout" forState:UIControlStateNormal];
-    [logoutButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [logoutButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    [logoutButton addTarget:self action:@selector(logout:) forControlEvents:UIControlEventTouchUpInside];
+    CGRect btnFrame = CGRectMake(0.0f,
+                       16.0f,
+                       BUTTON_WIDTH,
+                       BUTTON_HEIGHT);
+    
+    ActionButton *logoutButton = [[ActionButton alloc] initWithFrame:btnFrame title:BUTTON_TITLE];
+    logoutButton.delegate = self;
     [self.view addSubview:logoutButton];
 }
 
-- (void)logout:(id)sender {
+#pragma mark - Action Button Delegate
+
+- (void)performAction:(id)sender {
     [VKSdk forceLogout];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

@@ -14,6 +14,7 @@
 		DA15F2561D7DDCF7008E6310 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA15F2541D7DDCF7008E6310 /* LaunchScreen.storyboard */; };
 		DA15F2601D7DDD3F008E6310 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA15F25F1D7DDD3F008E6310 /* LoginViewController.m */; };
 		DA606CB51D7F55F400D9C58A /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA606CB41D7F55F400D9C58A /* PreviewViewController.m */; };
+		DA606CBA1D807F5800D9C58A /* ActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DA606CB91D807F5800D9C58A /* ActionButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		DA15F25F1D7DDD3F008E6310 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controllers/LoginViewController.m; sourceTree = "<group>"; };
 		DA606CB31D7F55F400D9C58A /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreviewViewController.h; path = Controllers/PreviewViewController.h; sourceTree = "<group>"; };
 		DA606CB41D7F55F400D9C58A /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreviewViewController.m; path = Controllers/PreviewViewController.m; sourceTree = "<group>"; };
+		DA606CB81D807F5800D9C58A /* ActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionButton.h; path = Views/Button/ActionButton.h; sourceTree = "<group>"; };
+		DA606CB91D807F5800D9C58A /* ActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActionButton.m; path = Views/Button/ActionButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,7 @@
 		DA15F2451D7DDCF7008E6310 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
+				DA606CB61D807EEA00D9C58A /* Views */,
 				DA15F25D1D7DDD15008E6310 /* Controllers */,
 				DA15F2491D7DDCF7008E6310 /* AppDelegate.h */,
 				DA15F24A1D7DDCF7008E6310 /* AppDelegate.m */,
@@ -111,6 +115,23 @@
 				DA606CB41D7F55F400D9C58A /* PreviewViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		DA606CB61D807EEA00D9C58A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DA606CB71D807EF900D9C58A /* Button */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		DA606CB71D807EF900D9C58A /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				DA606CB81D807F5800D9C58A /* ActionButton.h */,
+				DA606CB91D807F5800D9C58A /* ActionButton.m */,
+			);
+			name = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +257,7 @@
 				DA15F24B1D7DDCF7008E6310 /* AppDelegate.m in Sources */,
 				DA15F2481D7DDCF7008E6310 /* main.m in Sources */,
 				DA15F2601D7DDD3F008E6310 /* LoginViewController.m in Sources */,
+				DA606CBA1D807F5800D9C58A /* ActionButton.m in Sources */,
 				DA606CB51D7F55F400D9C58A /* PreviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
