@@ -9,41 +9,30 @@
 #import "LoginViewController.h"
 #import "PreviewViewController.h"
 #import "ActionButton.h"
-#import <VK-ios-sdk/VKSdk.h>
+#import "LoginService.h"
 
 static CGFloat const BUTTON_WIDTH = 90.0f;
 static CGFloat const BUTTON_HEIGHT = 40.0f;
-static NSString *const VK_APP_ID = @"5597588";
-static NSArray *SCOPE = nil;
 static NSString *const BUTTON_TITLE = @"Authorize";
 
-@interface LoginViewController () <VKSdkDelegate, VKSdkUIDelegate, ActionButtonDelegate>
+@interface LoginViewController () <ActionButtonDelegate>
 
 @end
 
-@implementation LoginViewController
+@implementation LoginViewController {
+    LoginService *loginService;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self initializeVKSdk];
+    [self initializeLoginService];
     [self addLoginView];
 }
 
-- (void)initializeVKSdk {
-    SCOPE = @[VK_PER_PHOTOS];
-    
-    VKSdk *sdkInstance = [VKSdk initializeWithAppId:VK_APP_ID];
-    [sdkInstance registerDelegate:self];
-    sdkInstance.uiDelegate = self;
-    
-    [VKSdk wakeUpSession:SCOPE completeBlock:^(VKAuthorizationState state, NSError *error) {
-        if (state == VKAuthorizationAuthorized) {
-            [self startWorking];
-        } else if (error) {
-            NSLog(@"error: %@", error.localizedDescription);
-        }
-    }];
+- (void)initializeLoginService {
+    loginService = [[LoginService alloc] initWithViewController:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startWorking) name:@"PerformStartActionNotification" object:nil];
 }
 
 - (void)addLoginView {
@@ -59,42 +48,17 @@ static NSString *const BUTTON_TITLE = @"Authorize";
     [self.view addSubview:loginButton];
 }
 
-#pragma mark - Authorize with VK
-
-- (void)performAction:(id)sender {
-    [VKSdk authorize:SCOPE];
-}
-
-#pragma mark - Open Preview View
+#pragma mark - VK Login Service
 
 - (void)startWorking {
     PreviewViewController *previewViewController = [PreviewViewController new];
     [self presentViewController:previewViewController animated:YES completion:nil];
 }
 
-#pragma mark - VK SDK Delegate
+#pragma mark - Authorize
 
-- (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
-    if (result.token) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-        [self startWorking];
-    } else if (result.error) {
-        NSLog(@"result: %@", result.error.localizedDescription);
-    }
-}
-
-- (void)vkSdkUserAuthorizationFailed {
-    NSLog(@"vkSdkUserAuthorizationFailed");
-}
-
-#pragma mark - VK SDK UI Delegate
-
-- (void)vkSdkShouldPresentViewController:(UIViewController *)controller {
-    [self presentViewController:controller animated:YES completion:nil];
-}
-
-- (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError {
-    NSLog(@"captchaError: %@", captchaError.errorMessage);
+- (void)performAction:(id)sender {
+    [loginService authorize];
 }
 
 @end

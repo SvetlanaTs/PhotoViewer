@@ -7,12 +7,13 @@
 //
 
 #import "PreviewViewController.h"
-#import <VK-ios-sdk/VKSdk.h>
+#import "LoginService.h"
 #import "ActionButton.h"
 
 static CGFloat const BUTTON_WIDTH = 90.0f;
 static CGFloat const BUTTON_HEIGHT = 40.0f;
 static NSString *const BUTTON_TITLE = @"Logout";
+static NSString *const VK_PHOTOS_METHOD = @"photos.getAll";
 
 @interface PreviewViewController () <ActionButtonDelegate>
 
@@ -44,7 +45,7 @@ static NSString *const BUTTON_TITLE = @"Logout";
 #pragma mark - Action Button Delegate
 
 - (void)performAction:(id)sender {
-    [VKSdk forceLogout];
+    [LoginService logout];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
