@@ -17,6 +17,7 @@
 		DAC2896C1D81E96600B79731 /* VKLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2896B1D81E96600B79731 /* VKLoginService.m */; };
 		DAC2896F1D81EE7300B79731 /* LoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2896E1D81EE7300B79731 /* LoginService.m */; };
 		DAC289741D82A0DD00B79731 /* PhotoViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC289731D82A0DD00B79731 /* PhotoViewer.storyboard */; };
+		DAC289781D82AB9000B79731 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC289771D82AB9000B79731 /* Photo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		DAC2896D1D81EE7300B79731 /* LoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginService.h; path = Services/LoginService/LoginService.h; sourceTree = "<group>"; };
 		DAC2896E1D81EE7300B79731 /* LoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginService.m; path = Services/LoginService/LoginService.m; sourceTree = "<group>"; };
 		DAC289731D82A0DD00B79731 /* PhotoViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoViewer.storyboard; sourceTree = "<group>"; };
+		DAC289761D82AB9000B79731 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Model/Photo.h; sourceTree = "<group>"; };
+		DAC289771D82AB9000B79731 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Model/Photo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 		DA15F2451D7DDCF7008E6310 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
+				DAC289751D82AB6F00B79731 /* Model */,
+				DA606CBC1D808E9B00D9C58A /* API */,
 				DA606CBB1D808E7300D9C58A /* Services */,
 				DA606CB61D807EEA00D9C58A /* Views */,
 				DA15F25D1D7DDD15008E6310 /* Controllers */,
@@ -135,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				DAC289691D81E8FF00B79731 /* LoginService */,
-				DA606CBC1D808E9B00D9C58A /* API */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -164,6 +168,15 @@
 				DAC2896B1D81E96600B79731 /* VKLoginService.m */,
 			);
 			name = VK;
+			sourceTree = "<group>";
+		};
+		DAC289751D82AB6F00B79731 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DAC289761D82AB9000B79731 /* Photo.h */,
+				DAC289771D82AB9000B79731 /* Photo.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC289781D82AB9000B79731 /* Photo.m in Sources */,
 				DAC2896F1D81EE7300B79731 /* LoginService.m in Sources */,
 				DA15F24B1D7DDCF7008E6310 /* AppDelegate.m in Sources */,
 				DA15F2481D7DDCF7008E6310 /* main.m in Sources */,
