@@ -23,9 +23,10 @@ static NSString *const SEGUE_ID = @"START_WORKING";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self initializeLoginService];
 }
+
+#pragma mark - Login Service
 
 - (void)initializeLoginService {
     loginService = [[LoginService alloc] initWithViewController:self];
@@ -35,6 +36,8 @@ static NSString *const SEGUE_ID = @"START_WORKING";
 - (void)startWorking {
     [self performSegueWithIdentifier:SEGUE_ID sender:self];
 }
+
+#pragma mark - Login
 
 - (IBAction)login:(id)sender {
     [loginService authorize];

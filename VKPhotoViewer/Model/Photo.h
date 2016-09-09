@@ -13,7 +13,7 @@
 @property (nonatomic) NSNumber *photoId;
 @property (nonatomic) NSString *photo;
 @property (nonatomic) NSString *thumbnail;
-
-- (instancetype)initWithId:(NSNumber *)photoId photo:(NSString *)photo thumbnail:(NSString *)thumbnail;
+@property (nonatomic) NSString *date;
+@property (nonatomic) NSString *text;
 
 @end

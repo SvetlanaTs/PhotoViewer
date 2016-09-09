@@ -19,6 +19,8 @@ static NSString *const THUMBNAIL_SIZE = @"photo_130";
     photo.photoId = dict[@"id"];
     photo.photo = dict[PHOTO_SIZE];
     photo.thumbnail = dict[THUMBNAIL_SIZE];
+    photo.date = dict[@"date"];
+    photo.text = dict[@"text"];
     
     return photo;
 }

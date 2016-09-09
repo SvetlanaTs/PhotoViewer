@@ -31,6 +31,8 @@
     [self getPhotoList];
 }
 
+#pragma mark - Photo List
+
 - (void)getPhotoList {
     [APIClient getPhotoListWithSuccess:^(NSArray *photos) {
         
@@ -56,6 +58,8 @@
     PhotoMapper *mapper = [PhotoMapper new];
     return [mapper mapPhotoFromDictionary:dictionary];
 }
+
+#pragma mark - Collection View Data Source
 
 - (void)getDataSource {
     self.collectionViewDataSource = [[CollectionViewDataSource alloc] initWithPhotoArray:photoObjects];
