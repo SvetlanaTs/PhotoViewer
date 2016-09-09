@@ -13,6 +13,7 @@
 		DA15F2531D7DDCF7008E6310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA15F2521D7DDCF7008E6310 /* Assets.xcassets */; };
 		DA15F2561D7DDCF7008E6310 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA15F2541D7DDCF7008E6310 /* LaunchScreen.storyboard */; };
 		DA15F2601D7DDD3F008E6310 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA15F25F1D7DDD3F008E6310 /* LoginViewController.m */; };
+		DA1F4D071D83011E00DCF83F /* CollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1F4D061D83011E00DCF83F /* CollectionViewDataSource.m */; };
 		DA606CB51D7F55F400D9C58A /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA606CB41D7F55F400D9C58A /* PreviewViewController.m */; };
 		DAC2896C1D81E96600B79731 /* VKLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2896B1D81E96600B79731 /* VKLoginService.m */; };
 		DAC2896F1D81EE7300B79731 /* LoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2896E1D81EE7300B79731 /* LoginService.m */; };
@@ -37,6 +38,8 @@
 		DA15F2571D7DDCF7008E6310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA15F25E1D7DDD3F008E6310 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Controllers/LoginViewController.h; sourceTree = "<group>"; };
 		DA15F25F1D7DDD3F008E6310 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controllers/LoginViewController.m; sourceTree = "<group>"; };
+		DA1F4D051D83011E00DCF83F /* CollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionViewDataSource.h; path = Views/CollectionViewDataSource/CollectionViewDataSource.h; sourceTree = "<group>"; };
+		DA1F4D061D83011E00DCF83F /* CollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionViewDataSource.m; path = Views/CollectionViewDataSource/CollectionViewDataSource.m; sourceTree = "<group>"; };
 		DA606CB31D7F55F400D9C58A /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreviewViewController.h; path = Controllers/PreviewViewController.h; sourceTree = "<group>"; };
 		DA606CB41D7F55F400D9C58A /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreviewViewController.m; path = Controllers/PreviewViewController.m; sourceTree = "<group>"; };
 		DAC2896A1D81E96600B79731 /* VKLoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKLoginService.h; path = Services/LoginService/VKLoginService.h; sourceTree = "<group>"; };
@@ -141,9 +144,19 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		DA1F4D041D8300DB00DCF83F /* CollectionViewDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				DA1F4D051D83011E00DCF83F /* CollectionViewDataSource.h */,
+				DA1F4D061D83011E00DCF83F /* CollectionViewDataSource.m */,
+			);
+			name = CollectionViewDataSource;
+			sourceTree = "<group>";
+		};
 		DA606CB61D807EEA00D9C58A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DA1F4D041D8300DB00DCF83F /* CollectionViewDataSource */,
 				DAC2897C1D82B97400B79731 /* CollectionCell */,
 			);
 			name = Views;
@@ -351,6 +364,7 @@
 				DAC289831D82BC8B00B79731 /* PhotoService.m in Sources */,
 				DA15F2481D7DDCF7008E6310 /* main.m in Sources */,
 				DAC2896C1D81E96600B79731 /* VKLoginService.m in Sources */,
+				DA1F4D071D83011E00DCF83F /* CollectionViewDataSource.m in Sources */,
 				DA15F2601D7DDD3F008E6310 /* LoginViewController.m in Sources */,
 				DA606CB51D7F55F400D9C58A /* PreviewViewController.m in Sources */,
 				DAC289871D82C11700B79731 /* PhotoMapper.m in Sources */,

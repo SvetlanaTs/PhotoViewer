@@ -11,10 +11,11 @@
 #import "APIClient.h"
 #import "PhotoMapper.h"
 #import "Photo.h"
+#import "CollectionViewDataSource.h"
 
-@interface PreviewViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface PreviewViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UIImageView *cellImageView;
+@property (nonatomic) CollectionViewDataSource *collectionViewDataSource;
 
 - (IBAction)logout:(id)sender;
 
@@ -34,6 +35,7 @@
     [APIClient getPhotoListWithSuccess:^(NSArray *photos) {
         
         photoObjects = [self getPhotoObjectArrayFromAPIArray:photos];
+        [self getDataSource];
         [self.collectionView reloadData];
         
     } failure:^(NSError *error) {
@@ -55,16 +57,9 @@
     return [mapper mapPhotoFromDictionary:dictionary];
 }
 
-#pragma mark - Collection View Data Source
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return photoObjects.count;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
-
-    return cell;
+- (void)getDataSource {
+    self.collectionViewDataSource = [[CollectionViewDataSource alloc] initWithPhotoArray:photoObjects];
+    self.collectionView.dataSource = self.collectionViewDataSource;
 }
 
 #pragma mark - Logout
