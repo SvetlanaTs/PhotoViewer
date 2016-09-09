@@ -54,7 +54,7 @@ static NSString *const CELL_ID = @"PHOTO_CELL";
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 cell.imageView.image = image;
-                [self.cache setObject:image forKey:cacheKey];
+                if (image != nil) [self.cache setObject:image forKey:cacheKey];
             });
         });
     }
