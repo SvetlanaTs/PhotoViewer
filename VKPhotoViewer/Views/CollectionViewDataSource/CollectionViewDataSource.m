@@ -15,6 +15,7 @@ static NSString *const CELL_ID = @"PHOTO_CELL";
 @interface CollectionViewDataSource ()
 
 @property (nonatomic) NSArray *photoArray;
+@property (nonatomic) NSCache *cache;
 
 @end
 
@@ -24,6 +25,7 @@ static NSString *const CELL_ID = @"PHOTO_CELL";
     self = [super init];
     if (self) {
         self.photoArray = photoArray;
+        self.cache = [NSCache new];
     }
     return self;
 }
@@ -42,12 +44,20 @@ static NSString *const CELL_ID = @"PHOTO_CELL";
     
     Photo *photo = self.photoArray[indexPath.row];
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:photo.thumbnail]]];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            cell.imageView.image = image;
+    NSString *cacheKey = [NSString stringWithFormat:@"%li", indexPath.row];
+    
+    if ([self.cache objectForKey:cacheKey]) {
+        cell.imageView.image = [self.cache objectForKey:cacheKey];
+    } else {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:photo.thumbnail]]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.imageView.image = image;
+                [self.cache setObject:image forKey:cacheKey];
+            });
         });
-    });
+    }
     
     return cell;
 }

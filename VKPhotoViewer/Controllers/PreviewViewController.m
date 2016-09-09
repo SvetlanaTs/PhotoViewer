@@ -38,8 +38,9 @@
         
         photoObjects = [self getPhotoObjectArrayFromAPIArray:photos];
         [self getDataSource];
-        [self.collectionView reloadData];
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView reloadData];
+        });
     } failure:^(NSError *error) {
         NSLog(@"error:\n %@", error.localizedDescription);
     }];

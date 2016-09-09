@@ -153,13 +153,6 @@
 			name = CollectionViewDataSource;
 			sourceTree = "<group>";
 		};
-		DA1F4D091D830C8600DCF83F /* Cache */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Cache;
-			sourceTree = "<group>";
-		};
 		DA606CB61D807EEA00D9C58A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,7 +173,6 @@
 		DA606CBC1D808E9B00D9C58A /* API */ = {
 			isa = PBXGroup;
 			children = (
-				DA1F4D091D830C8600DCF83F /* Cache */,
 				DAC289841D82C0DD00B79731 /* Mapper */,
 				DAC289801D82BBB100B79731 /* PhotoService */,
 				DAC289791D82AF4400B79731 /* APIClient.h */,
