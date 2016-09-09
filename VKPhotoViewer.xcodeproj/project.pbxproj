@@ -18,6 +18,10 @@
 		DAC2896F1D81EE7300B79731 /* LoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2896E1D81EE7300B79731 /* LoginService.m */; };
 		DAC289741D82A0DD00B79731 /* PhotoViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC289731D82A0DD00B79731 /* PhotoViewer.storyboard */; };
 		DAC289781D82AB9000B79731 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC289771D82AB9000B79731 /* Photo.m */; };
+		DAC2897B1D82AF4400B79731 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2897A1D82AF4400B79731 /* APIClient.m */; };
+		DAC2897F1D82B9A900B79731 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2897E1D82B9A900B79731 /* PhotoCell.m */; };
+		DAC289831D82BC8B00B79731 /* PhotoService.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC289821D82BC8B00B79731 /* PhotoService.m */; };
+		DAC289871D82C11700B79731 /* PhotoMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC289861D82C11700B79731 /* PhotoMapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,14 @@
 		DAC289731D82A0DD00B79731 /* PhotoViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoViewer.storyboard; sourceTree = "<group>"; };
 		DAC289761D82AB9000B79731 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Model/Photo.h; sourceTree = "<group>"; };
 		DAC289771D82AB9000B79731 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Model/Photo.m; sourceTree = "<group>"; };
+		DAC289791D82AF4400B79731 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIClient.h; path = API/APIClient.h; sourceTree = "<group>"; };
+		DAC2897A1D82AF4400B79731 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIClient.m; path = API/APIClient.m; sourceTree = "<group>"; };
+		DAC2897D1D82B9A900B79731 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoCell.h; path = CollectionCell/PhotoCell.h; sourceTree = "<group>"; };
+		DAC2897E1D82B9A900B79731 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoCell.m; path = CollectionCell/PhotoCell.m; sourceTree = "<group>"; };
+		DAC289811D82BC8B00B79731 /* PhotoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoService.h; path = API/PhotoService/PhotoService.h; sourceTree = "<group>"; };
+		DAC289821D82BC8B00B79731 /* PhotoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoService.m; path = API/PhotoService/PhotoService.m; sourceTree = "<group>"; };
+		DAC289851D82C11700B79731 /* PhotoMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoMapper.h; path = API/Mapper/PhotoMapper.h; sourceTree = "<group>"; };
+		DAC289861D82C11700B79731 /* PhotoMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoMapper.m; path = API/Mapper/PhotoMapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +144,7 @@
 		DA606CB61D807EEA00D9C58A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DAC2897C1D82B97400B79731 /* CollectionCell */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -147,6 +160,10 @@
 		DA606CBC1D808E9B00D9C58A /* API */ = {
 			isa = PBXGroup;
 			children = (
+				DAC289841D82C0DD00B79731 /* Mapper */,
+				DAC289801D82BBB100B79731 /* PhotoService */,
+				DAC289791D82AF4400B79731 /* APIClient.h */,
+				DAC2897A1D82AF4400B79731 /* APIClient.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -177,6 +194,33 @@
 				DAC289771D82AB9000B79731 /* Photo.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		DAC2897C1D82B97400B79731 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				DAC2897D1D82B9A900B79731 /* PhotoCell.h */,
+				DAC2897E1D82B9A900B79731 /* PhotoCell.m */,
+			);
+			name = CollectionCell;
+			sourceTree = "<group>";
+		};
+		DAC289801D82BBB100B79731 /* PhotoService */ = {
+			isa = PBXGroup;
+			children = (
+				DAC289811D82BC8B00B79731 /* PhotoService.h */,
+				DAC289821D82BC8B00B79731 /* PhotoService.m */,
+			);
+			name = PhotoService;
+			sourceTree = "<group>";
+		};
+		DAC289841D82C0DD00B79731 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				DAC289851D82C11700B79731 /* PhotoMapper.h */,
+				DAC289861D82C11700B79731 /* PhotoMapper.m */,
+			);
+			name = Mapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,13 +344,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC2897F1D82B9A900B79731 /* PhotoCell.m in Sources */,
 				DAC289781D82AB9000B79731 /* Photo.m in Sources */,
 				DAC2896F1D81EE7300B79731 /* LoginService.m in Sources */,
 				DA15F24B1D7DDCF7008E6310 /* AppDelegate.m in Sources */,
+				DAC289831D82BC8B00B79731 /* PhotoService.m in Sources */,
 				DA15F2481D7DDCF7008E6310 /* main.m in Sources */,
 				DAC2896C1D81E96600B79731 /* VKLoginService.m in Sources */,
 				DA15F2601D7DDD3F008E6310 /* LoginViewController.m in Sources */,
 				DA606CB51D7F55F400D9C58A /* PreviewViewController.m in Sources */,
+				DAC289871D82C11700B79731 /* PhotoMapper.m in Sources */,
+				DAC2897B1D82AF4400B79731 /* APIClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
