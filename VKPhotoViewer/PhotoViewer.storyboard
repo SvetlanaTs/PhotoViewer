@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jOu-lw-Q1o">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="npx-nx-bCg">
+            <objects>
+                <viewController id="Jyr-25-pHF" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wz8-ud-uKB"/>
+                        <viewControllerLayoutGuide type="bottom" id="393-kR-535"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="45a-IX-6qJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Mfz-yw-9LZ">
+                        <barButtonItem key="rightBarButtonItem" title="Login" id="JQb-gb-OYY">
+                            <connections>
+                                <action selector="login:" destination="Jyr-25-pHF" id="NDy-58-DJF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="ItG-eA-TIz" kind="show" identifier="START_WORKING" id="Tn6-Zy-4v1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q1X-qi-8fE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1545" y="333"/>
+        </scene>
+        <!--Preview View Controller-->
+        <scene sceneID="gzB-sk-NII">
+            <objects>
+                <viewController id="ItG-eA-TIz" customClass="PreviewViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k3u-98-3Dn"/>
+                        <viewControllerLayoutGuide type="bottom" id="sbK-fx-Twf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XFC-oC-hdB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zZf-Ce-u29">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="x0z-Qz-3q9">
+                            <connections>
+                                <action selector="logout:" destination="ItG-eA-TIz" id="yKx-0r-7VS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SUX-AY-yW0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2269" y="333"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="64E-gu-gQF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jOu-lw-Q1o" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="efV-E3-ygG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Jyr-25-pHF" kind="relationship" relationship="rootViewController" id="0OH-zO-swL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H24-UU-ne4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800" y="333"/>
+        </scene>
+    </scenes>
+</document>

@@ -14,9 +14,9 @@
 		DA15F2561D7DDCF7008E6310 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA15F2541D7DDCF7008E6310 /* LaunchScreen.storyboard */; };
 		DA15F2601D7DDD3F008E6310 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA15F25F1D7DDD3F008E6310 /* LoginViewController.m */; };
 		DA606CB51D7F55F400D9C58A /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA606CB41D7F55F400D9C58A /* PreviewViewController.m */; };
-		DA606CBA1D807F5800D9C58A /* ActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DA606CB91D807F5800D9C58A /* ActionButton.m */; };
 		DAC2896C1D81E96600B79731 /* VKLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2896B1D81E96600B79731 /* VKLoginService.m */; };
 		DAC2896F1D81EE7300B79731 /* LoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2896E1D81EE7300B79731 /* LoginService.m */; };
+		DAC289741D82A0DD00B79731 /* PhotoViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC289731D82A0DD00B79731 /* PhotoViewer.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,12 +34,11 @@
 		DA15F25F1D7DDD3F008E6310 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controllers/LoginViewController.m; sourceTree = "<group>"; };
 		DA606CB31D7F55F400D9C58A /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreviewViewController.h; path = Controllers/PreviewViewController.h; sourceTree = "<group>"; };
 		DA606CB41D7F55F400D9C58A /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreviewViewController.m; path = Controllers/PreviewViewController.m; sourceTree = "<group>"; };
-		DA606CB81D807F5800D9C58A /* ActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionButton.h; path = Views/Button/ActionButton.h; sourceTree = "<group>"; };
-		DA606CB91D807F5800D9C58A /* ActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActionButton.m; path = Views/Button/ActionButton.m; sourceTree = "<group>"; };
 		DAC2896A1D81E96600B79731 /* VKLoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKLoginService.h; path = Services/LoginService/VKLoginService.h; sourceTree = "<group>"; };
 		DAC2896B1D81E96600B79731 /* VKLoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKLoginService.m; path = Services/LoginService/VKLoginService.m; sourceTree = "<group>"; };
 		DAC2896D1D81EE7300B79731 /* LoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginService.h; path = Services/LoginService/LoginService.h; sourceTree = "<group>"; };
 		DAC2896E1D81EE7300B79731 /* LoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginService.m; path = Services/LoginService/LoginService.m; sourceTree = "<group>"; };
+		DAC289731D82A0DD00B79731 /* PhotoViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoViewer.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +100,7 @@
 				DA15F2541D7DDCF7008E6310 /* LaunchScreen.storyboard */,
 				DA15F2571D7DDCF7008E6310 /* Info.plist */,
 				DA15F2461D7DDCF7008E6310 /* Supporting Files */,
+				DAC289731D82A0DD00B79731 /* PhotoViewer.storyboard */,
 			);
 			path = VKPhotoViewer;
 			sourceTree = "<group>";
@@ -127,18 +127,8 @@
 		DA606CB61D807EEA00D9C58A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DA606CB71D807EF900D9C58A /* Button */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		DA606CB71D807EF900D9C58A /* Button */ = {
-			isa = PBXGroup;
-			children = (
-				DA606CB81D807F5800D9C58A /* ActionButton.h */,
-				DA606CB91D807F5800D9C58A /* ActionButton.m */,
-			);
-			name = Button;
 			sourceTree = "<group>";
 		};
 		DA606CBB1D808E7300D9C58A /* Services */ = {
@@ -236,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC289741D82A0DD00B79731 /* PhotoViewer.storyboard in Resources */,
 				DA15F2561D7DDCF7008E6310 /* LaunchScreen.storyboard in Resources */,
 				DA15F2531D7DDCF7008E6310 /* Assets.xcassets in Resources */,
 			);
@@ -301,7 +292,6 @@
 				DA15F2481D7DDCF7008E6310 /* main.m in Sources */,
 				DAC2896C1D81E96600B79731 /* VKLoginService.m in Sources */,
 				DA15F2601D7DDD3F008E6310 /* LoginViewController.m in Sources */,
-				DA606CBA1D807F5800D9C58A /* ActionButton.m in Sources */,
 				DA606CB51D7F55F400D9C58A /* PreviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

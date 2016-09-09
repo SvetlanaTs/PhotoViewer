@@ -8,14 +8,11 @@
 
 #import "PreviewViewController.h"
 #import "LoginService.h"
-#import "ActionButton.h"
 
-static CGFloat const BUTTON_WIDTH = 90.0f;
-static CGFloat const BUTTON_HEIGHT = 40.0f;
-static NSString *const BUTTON_TITLE = @"Logout";
 static NSString *const VK_PHOTOS_METHOD = @"photos.getAll";
 
-@interface PreviewViewController () <ActionButtonDelegate>
+@interface PreviewViewController ()
+- (IBAction)logout:(id)sender;
 
 @end
 
@@ -25,28 +22,11 @@ static NSString *const VK_PHOTOS_METHOD = @"photos.getAll";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self addPreviewView];
 }
 
-- (void)addPreviewView {
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    CGRect btnFrame = CGRectMake(0.0f,
-                       16.0f,
-                       BUTTON_WIDTH,
-                       BUTTON_HEIGHT);
-    
-    ActionButton *logoutButton = [[ActionButton alloc] initWithFrame:btnFrame title:BUTTON_TITLE];
-    logoutButton.delegate = self;
-    [self.view addSubview:logoutButton];
-}
-
-#pragma mark - Action Button Delegate
-
-- (void)performAction:(id)sender {
+- (IBAction)logout:(id)sender {
     [LoginService logout];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

@@ -8,14 +8,12 @@
 
 #import "LoginViewController.h"
 #import "PreviewViewController.h"
-#import "ActionButton.h"
 #import "LoginService.h"
 
-static CGFloat const BUTTON_WIDTH = 90.0f;
-static CGFloat const BUTTON_HEIGHT = 40.0f;
-static NSString *const BUTTON_TITLE = @"Authorize";
+static NSString *const SEGUE_ID = @"START_WORKING";
 
-@interface LoginViewController () <ActionButtonDelegate>
+@interface LoginViewController ()
+- (IBAction)login:(id)sender;
 
 @end
 
@@ -27,7 +25,6 @@ static NSString *const BUTTON_TITLE = @"Authorize";
     [super viewDidLoad];
     
     [self initializeLoginService];
-    [self addLoginView];
 }
 
 - (void)initializeLoginService {
@@ -35,29 +32,11 @@ static NSString *const BUTTON_TITLE = @"Authorize";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startWorking) name:@"PerformStartActionNotification" object:nil];
 }
 
-- (void)addLoginView {
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    CGRect btnFrame = CGRectMake(self.view.frame.size.width/2 - BUTTON_WIDTH/2,
-                                   self.view.frame.size.height/2 - BUTTON_HEIGHT/2,
-                                   BUTTON_WIDTH,
-                                   BUTTON_HEIGHT);
-    
-    ActionButton *loginButton = [[ActionButton alloc] initWithFrame:btnFrame title:BUTTON_TITLE];
-    loginButton.delegate = self;
-    [self.view addSubview:loginButton];
-}
-
-#pragma mark - VK Login Service
-
 - (void)startWorking {
-    PreviewViewController *previewViewController = [PreviewViewController new];
-    [self presentViewController:previewViewController animated:YES completion:nil];
+    [self performSegueWithIdentifier:SEGUE_ID sender:self];
 }
 
-#pragma mark - Authorize
-
-- (void)performAction:(id)sender {
+- (IBAction)login:(id)sender {
     [loginService authorize];
 }
 
