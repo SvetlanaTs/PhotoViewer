@@ -13,6 +13,7 @@
 #import "Photo.h"
 #import "CollectionViewDataSource.h"
 #import "PhotoViewController.h"
+#import "CollectionViewUtilities.h"
 
 static NSString *const SEGUE_ID = @"SHOW_PHOTO";
 static CGFloat const DEFAULT_SPACE = 8.0f;
@@ -64,7 +65,7 @@ static CGFloat const NUMBER_OF_ITEMS_PER_ROW = 3;
 
 - (void)showPhotoObjectsInCollectionView {
     [self getDataSource];
-    [self getPhotoImageSize];
+    [CollectionViewUtilities collectionView:self.collectionView itemSizeOfFlowLayout:self.flowLayout withDefaultSpace:DEFAULT_SPACE numberOfItemsPerRow:NUMBER_OF_ITEMS_PER_ROW];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.collectionView reloadData];
@@ -93,17 +94,6 @@ static CGFloat const NUMBER_OF_ITEMS_PER_ROW = 3;
         photoViewController.photos = self.photoObjects;
         photoViewController.indexPath = self.selectedIndexPath;
     }
-}
-
-#pragma mark - Photo Image Size
-
-- (void)getPhotoImageSize {
-    CGFloat width = (self.collectionView.frame.size.width - (DEFAULT_SPACE * (NUMBER_OF_ITEMS_PER_ROW + 1))) / NUMBER_OF_ITEMS_PER_ROW;
-    self.flowLayout.itemSize = CGSizeMake(width, width);
-    self.flowLayout.minimumLineSpacing = DEFAULT_SPACE;
-    self.flowLayout.minimumInteritemSpacing = DEFAULT_SPACE;
-    
-    self.collectionView.contentInset = UIEdgeInsetsMake(DEFAULT_SPACE, DEFAULT_SPACE, DEFAULT_SPACE, DEFAULT_SPACE);
 }
 
 #pragma mark - Logout

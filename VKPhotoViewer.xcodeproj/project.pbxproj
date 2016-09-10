@@ -18,6 +18,7 @@
 		DA581EBB1D8401A400C307FB /* ThumbnailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA581EBA1D8401A400C307FB /* ThumbnailCell.m */; };
 		DA581EC01D84382C00C307FB /* PhotoDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA581EBF1D84382C00C307FB /* PhotoDataSource.m */; };
 		DA581EC41D847C9100C307FB /* AppCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DA581EC31D847C9100C307FB /* AppCache.m */; };
+		DA581EC91D84B4BE00C307FB /* CollectionViewUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DA581EC81D84B4BE00C307FB /* CollectionViewUtilities.m */; };
 		DA606CB51D7F55F400D9C58A /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA606CB41D7F55F400D9C58A /* PreviewViewController.m */; };
 		DAC2896C1D81E96600B79731 /* VKLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2896B1D81E96600B79731 /* VKLoginService.m */; };
 		DAC2896F1D81EE7300B79731 /* LoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2896E1D81EE7300B79731 /* LoginService.m */; };
@@ -52,6 +53,8 @@
 		DA581EBF1D84382C00C307FB /* PhotoDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoDataSource.m; path = Views/CollectionViewDataSource/PhotoDataSource/PhotoDataSource.m; sourceTree = "<group>"; };
 		DA581EC21D847C9100C307FB /* AppCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppCache.h; path = API/Cache/AppCache.h; sourceTree = "<group>"; };
 		DA581EC31D847C9100C307FB /* AppCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppCache.m; path = API/Cache/AppCache.m; sourceTree = "<group>"; };
+		DA581EC71D84B4BE00C307FB /* CollectionViewUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionViewUtilities.h; path = Utilities/CollectionViewUtilities.h; sourceTree = "<group>"; };
+		DA581EC81D84B4BE00C307FB /* CollectionViewUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionViewUtilities.m; path = Utilities/CollectionViewUtilities.m; sourceTree = "<group>"; };
 		DA606CB31D7F55F400D9C58A /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreviewViewController.h; path = Controllers/PreviewViewController.h; sourceTree = "<group>"; };
 		DA606CB41D7F55F400D9C58A /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreviewViewController.m; path = Controllers/PreviewViewController.m; sourceTree = "<group>"; };
 		DAC2896A1D81E96600B79731 /* VKLoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKLoginService.h; path = Services/LoginService/VKLoginService.h; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 		DA15F2451D7DDCF7008E6310 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
+				DA581EC61D84B46500C307FB /* Utils */,
 				DAC289751D82AB6F00B79731 /* Model */,
 				DA606CBC1D808E9B00D9C58A /* API */,
 				DA606CBB1D808E7300D9C58A /* Services */,
@@ -192,6 +196,15 @@
 				DA581EC31D847C9100C307FB /* AppCache.m */,
 			);
 			name = Cache;
+			sourceTree = "<group>";
+		};
+		DA581EC61D84B46500C307FB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DA581EC71D84B4BE00C307FB /* CollectionViewUtilities.h */,
+				DA581EC81D84B4BE00C307FB /* CollectionViewUtilities.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		DA606CB61D807EEA00D9C58A /* Views */ = {
@@ -405,6 +418,7 @@
 				DAC289781D82AB9000B79731 /* Photo.m in Sources */,
 				DAC2896F1D81EE7300B79731 /* LoginService.m in Sources */,
 				DA581EC01D84382C00C307FB /* PhotoDataSource.m in Sources */,
+				DA581EC91D84B4BE00C307FB /* CollectionViewUtilities.m in Sources */,
 				DA15F24B1D7DDCF7008E6310 /* AppDelegate.m in Sources */,
 				DAC289831D82BC8B00B79731 /* PhotoService.m in Sources */,
 				DA15F2481D7DDCF7008E6310 /* main.m in Sources */,

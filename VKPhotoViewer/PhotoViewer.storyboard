@@ -138,8 +138,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="260" height="380"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e0O-Wt-pF8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="280" height="380"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e0O-Wt-pF8">
+                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="380"/>
                                                 </imageView>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZKJ-o7-tjv">
                                                     <rect key="frame" x="0.0" y="336" width="280" height="44"/>
