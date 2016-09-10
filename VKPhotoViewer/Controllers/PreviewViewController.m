@@ -13,16 +13,20 @@
 #import "Photo.h"
 #import "CollectionViewDataSource.h"
 
-@interface PreviewViewController ()
+static NSString *const SEGUE_ID = @"SHOW_PHOTO";
+static CGFloat const DEFAULT_SPACE = 8.0f;
+static CGFloat const NUMBER_OF_ITEMS_PER_ROW = 3;
+
+@interface PreviewViewController () <UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic) CollectionViewDataSource *collectionViewDataSource;
+@property (nonatomic) CollectionViewDataSource *dataSource;
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
 - (IBAction)logout:(id)sender;
 
 @end
 
 @implementation PreviewViewController {
-    UICollectionView *previewCollectionView;
     NSArray *photoObjects;
 }
 
@@ -35,18 +39,14 @@
 
 - (void)getPhotoList {
     [APIClient getPhotoListWithSuccess:^(NSArray *photos) {
-        
-        photoObjects = [self getPhotoObjectArrayFromAPIArray:photos];
-        [self getDataSource];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.collectionView reloadData];
-        });
+        photoObjects = [self getPhotoObjectsFromAPIArray:photos];
+        [self showPhotoObjectsInCollectionView];
     } failure:^(NSError *error) {
         NSLog(@"error:\n %@", error.localizedDescription);
     }];
 }
 
-- (NSMutableArray *)getPhotoObjectArrayFromAPIArray:(NSArray *)APIArray {
+- (NSMutableArray *)getPhotoObjectsFromAPIArray:(NSArray *)APIArray {
     NSMutableArray *array = [NSMutableArray new];
     for (NSDictionary *dict in APIArray) {
         Photo *photo = [self getPhoto:dict];
@@ -60,11 +60,37 @@
     return [mapper mapPhotoFromDictionary:dictionary];
 }
 
+- (void)showPhotoObjectsInCollectionView {
+    [self getDataSource];
+    [self getPhotoImageSize];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.collectionView reloadData];
+    });
+}
+
 #pragma mark - Collection View Data Source
 
 - (void)getDataSource {
-    self.collectionViewDataSource = [[CollectionViewDataSource alloc] initWithPhotoArray:photoObjects];
-    self.collectionView.dataSource = self.collectionViewDataSource;
+    self.dataSource = [[CollectionViewDataSource alloc] initWithPhotoArray:photoObjects];
+    self.collectionView.dataSource = self.dataSource;
+}
+
+#pragma mark - Collection View Delegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:SEGUE_ID sender:self];
+}
+
+#pragma mark - Photo Image Size
+
+- (void)getPhotoImageSize {
+    CGFloat width = (self.collectionView.frame.size.width - (DEFAULT_SPACE * (NUMBER_OF_ITEMS_PER_ROW + 1))) / NUMBER_OF_ITEMS_PER_ROW;
+    self.flowLayout.itemSize = CGSizeMake(width, width);
+    self.flowLayout.minimumLineSpacing = DEFAULT_SPACE;
+    self.flowLayout.minimumInteritemSpacing = DEFAULT_SPACE;
+    
+    self.collectionView.contentInset = UIEdgeInsetsMake(DEFAULT_SPACE, DEFAULT_SPACE, DEFAULT_SPACE, DEFAULT_SPACE);
 }
 
 #pragma mark - Logout

@@ -7,10 +7,10 @@
 //
 
 #import "CollectionViewDataSource.h"
+#import "ThumbnailCell.h"
 #import "Photo.h"
-#import "PhotoCell.h"
 
-static NSString *const CELL_ID = @"PHOTO_CELL";
+static NSString *const CELL_ID = @"THUMBNAIL_CELL";
 
 @interface CollectionViewDataSource ()
 
@@ -37,9 +37,9 @@ static NSString *const CELL_ID = @"PHOTO_CELL";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
+    ThumbnailCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
     if (!cell) {
-        cell = [PhotoCell new];
+        cell = [ThumbnailCell new];
     }
     
     Photo *photo = self.photoArray[indexPath.row];

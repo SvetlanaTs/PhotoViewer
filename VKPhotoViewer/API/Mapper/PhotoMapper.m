@@ -9,8 +9,8 @@
 #import "PhotoMapper.h"
 #import "Photo.h"
 
-static NSString *const PHOTO_SIZE = @"photo_604";
-static NSString *const THUMBNAIL_SIZE = @"photo_130";
+static NSString *const PHOTO_SIZE = @"photo_807";
+static NSString *const THUMBNAIL_SIZE = @"photo_604";
 
 @implementation PhotoMapper
 
