@@ -13,5 +13,6 @@
 
 @property (nonatomic) NSArray *photos;
 @property (nonatomic) Photo *photo;
+@property (nonatomic) NSIndexPath *indexPath;
 
 @end

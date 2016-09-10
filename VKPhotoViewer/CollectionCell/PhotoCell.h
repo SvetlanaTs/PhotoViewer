@@ -10,7 +10,6 @@
 
 @interface PhotoCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end

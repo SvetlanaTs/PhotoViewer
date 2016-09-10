@@ -9,13 +9,13 @@
 #import "CollectionViewDataSource.h"
 #import "ThumbnailCell.h"
 #import "Photo.h"
+#import "AppCache.h"
 
 static NSString *const CELL_ID = @"THUMBNAIL_CELL";
 
 @interface CollectionViewDataSource ()
 
 @property (nonatomic) NSArray *photoArray;
-@property (nonatomic) NSCache *cache;
 
 @end
 
@@ -25,7 +25,6 @@ static NSString *const CELL_ID = @"THUMBNAIL_CELL";
     self = [super init];
     if (self) {
         self.photoArray = photoArray;
-        self.cache = [NSCache new];
     }
     return self;
 }
@@ -42,25 +41,24 @@ static NSString *const CELL_ID = @"THUMBNAIL_CELL";
         cell = [ThumbnailCell new];
     }
     
-    Photo *photo = self.photoArray[indexPath.row];
+    Photo *photo = self.photoArray[indexPath.item];
     
-    NSString *cacheKey = [NSString stringWithFormat:@"%li", indexPath.row];
+    NSString *cacheKey = [NSString stringWithFormat:@"%li", indexPath.item];
     
-    if ([self.cache objectForKey:cacheKey]) {
-        cell.imageView.image = [self.cache objectForKey:cacheKey];
+    if ([[AppCache sharedInstance] objectForKey:cacheKey]) {
+        cell.imageView.image = [[AppCache sharedInstance] objectForKey:cacheKey];
     } else {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:photo.thumbnail]]];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 cell.imageView.image = image;
-                if (image != nil) [self.cache setObject:image forKey:cacheKey];
+                if (image != nil) [[AppCache sharedInstance] saveObject:image forKey:cacheKey];
             });
         });
     }
     
     return cell;
 }
-
 
 @end

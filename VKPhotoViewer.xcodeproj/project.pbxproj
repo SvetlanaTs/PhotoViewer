@@ -16,6 +16,8 @@
 		DA1F4D071D83011E00DCF83F /* CollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1F4D061D83011E00DCF83F /* CollectionViewDataSource.m */; };
 		DA581EB81D833A9700C307FB /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA581EB71D833A9700C307FB /* PhotoViewController.m */; };
 		DA581EBB1D8401A400C307FB /* ThumbnailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA581EBA1D8401A400C307FB /* ThumbnailCell.m */; };
+		DA581EC01D84382C00C307FB /* PhotoDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA581EBF1D84382C00C307FB /* PhotoDataSource.m */; };
+		DA581EC41D847C9100C307FB /* AppCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DA581EC31D847C9100C307FB /* AppCache.m */; };
 		DA606CB51D7F55F400D9C58A /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA606CB41D7F55F400D9C58A /* PreviewViewController.m */; };
 		DAC2896C1D81E96600B79731 /* VKLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2896B1D81E96600B79731 /* VKLoginService.m */; };
 		DAC2896F1D81EE7300B79731 /* LoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2896E1D81EE7300B79731 /* LoginService.m */; };
@@ -46,6 +48,10 @@
 		DA581EB71D833A9700C307FB /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoViewController.m; path = Controllers/PhotoViewController.m; sourceTree = "<group>"; };
 		DA581EB91D8401A400C307FB /* ThumbnailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThumbnailCell.h; path = CollectionCell/ThumbnailCell.h; sourceTree = "<group>"; };
 		DA581EBA1D8401A400C307FB /* ThumbnailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThumbnailCell.m; path = CollectionCell/ThumbnailCell.m; sourceTree = "<group>"; };
+		DA581EBE1D84382C00C307FB /* PhotoDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoDataSource.h; path = Views/CollectionViewDataSource/PhotoDataSource/PhotoDataSource.h; sourceTree = "<group>"; };
+		DA581EBF1D84382C00C307FB /* PhotoDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoDataSource.m; path = Views/CollectionViewDataSource/PhotoDataSource/PhotoDataSource.m; sourceTree = "<group>"; };
+		DA581EC21D847C9100C307FB /* AppCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppCache.h; path = API/Cache/AppCache.h; sourceTree = "<group>"; };
+		DA581EC31D847C9100C307FB /* AppCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppCache.m; path = API/Cache/AppCache.m; sourceTree = "<group>"; };
 		DA606CB31D7F55F400D9C58A /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreviewViewController.h; path = Controllers/PreviewViewController.h; sourceTree = "<group>"; };
 		DA606CB41D7F55F400D9C58A /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreviewViewController.m; path = Controllers/PreviewViewController.m; sourceTree = "<group>"; };
 		DAC2896A1D81E96600B79731 /* VKLoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKLoginService.h; path = Services/LoginService/VKLoginService.h; sourceTree = "<group>"; };
@@ -155,10 +161,37 @@
 		DA1F4D041D8300DB00DCF83F /* CollectionViewDataSource */ = {
 			isa = PBXGroup;
 			children = (
+				DA581EBD1D84364300C307FB /* PhotoDataSource */,
+				DA581EBC1D84363100C307FB /* PreviewDataSource */,
+			);
+			name = CollectionViewDataSource;
+			sourceTree = "<group>";
+		};
+		DA581EBC1D84363100C307FB /* PreviewDataSource */ = {
+			isa = PBXGroup;
+			children = (
 				DA1F4D051D83011E00DCF83F /* CollectionViewDataSource.h */,
 				DA1F4D061D83011E00DCF83F /* CollectionViewDataSource.m */,
 			);
-			name = CollectionViewDataSource;
+			name = PreviewDataSource;
+			sourceTree = "<group>";
+		};
+		DA581EBD1D84364300C307FB /* PhotoDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				DA581EBE1D84382C00C307FB /* PhotoDataSource.h */,
+				DA581EBF1D84382C00C307FB /* PhotoDataSource.m */,
+			);
+			name = PhotoDataSource;
+			sourceTree = "<group>";
+		};
+		DA581EC11D847C2B00C307FB /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				DA581EC21D847C9100C307FB /* AppCache.h */,
+				DA581EC31D847C9100C307FB /* AppCache.m */,
+			);
+			name = Cache;
 			sourceTree = "<group>";
 		};
 		DA606CB61D807EEA00D9C58A /* Views */ = {
@@ -181,6 +214,7 @@
 		DA606CBC1D808E9B00D9C58A /* API */ = {
 			isa = PBXGroup;
 			children = (
+				DA581EC11D847C2B00C307FB /* Cache */,
 				DAC289801D82BBB100B79731 /* PhotoService */,
 				DAC289791D82AF4400B79731 /* APIClient.h */,
 				DAC2897A1D82AF4400B79731 /* APIClient.m */,
@@ -370,12 +404,14 @@
 				DAC2897F1D82B9A900B79731 /* PhotoCell.m in Sources */,
 				DAC289781D82AB9000B79731 /* Photo.m in Sources */,
 				DAC2896F1D81EE7300B79731 /* LoginService.m in Sources */,
+				DA581EC01D84382C00C307FB /* PhotoDataSource.m in Sources */,
 				DA15F24B1D7DDCF7008E6310 /* AppDelegate.m in Sources */,
 				DAC289831D82BC8B00B79731 /* PhotoService.m in Sources */,
 				DA15F2481D7DDCF7008E6310 /* main.m in Sources */,
 				DAC2896C1D81E96600B79731 /* VKLoginService.m in Sources */,
 				DA581EB81D833A9700C307FB /* PhotoViewController.m in Sources */,
 				DA1F4D071D83011E00DCF83F /* CollectionViewDataSource.m in Sources */,
+				DA581EC41D847C9100C307FB /* AppCache.m in Sources */,
 				DA15F2601D7DDD3F008E6310 /* LoginViewController.m in Sources */,
 				DA581EBB1D8401A400C307FB /* ThumbnailCell.m in Sources */,
 				DA606CB51D7F55F400D9C58A /* PreviewViewController.m in Sources */,
