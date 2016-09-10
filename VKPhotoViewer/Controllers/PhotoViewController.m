@@ -7,6 +7,7 @@
 //
 
 #import "PhotoViewController.h"
+#import "Photo.h"
 
 @interface PhotoViewController ()
 
@@ -16,13 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
+    NSLog(@"date %@", [formatter stringFromDate:self.photo.date]);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 @end

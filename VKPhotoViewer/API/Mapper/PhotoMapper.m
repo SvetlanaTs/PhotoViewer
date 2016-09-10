@@ -9,7 +9,7 @@
 #import "PhotoMapper.h"
 #import "Photo.h"
 
-static NSString *const PHOTO_SIZE = @"photo_807";
+static NSString *const PHOTO_SIZE = @"photo_1280";
 static NSString *const THUMBNAIL_SIZE = @"photo_604";
 
 @implementation PhotoMapper
@@ -19,8 +19,10 @@ static NSString *const THUMBNAIL_SIZE = @"photo_604";
     photo.photoId = dict[@"id"];
     photo.photo = dict[PHOTO_SIZE];
     photo.thumbnail = dict[THUMBNAIL_SIZE];
-    photo.date = dict[@"date"];
     photo.text = dict[@"text"];
+    
+    NSNumber *interval = dict[@"date"];
+    photo.date = [NSDate dateWithTimeIntervalSince1970:[interval doubleValue]];
     
     return photo;
 }

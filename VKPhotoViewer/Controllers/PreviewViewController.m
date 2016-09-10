@@ -12,6 +12,7 @@
 #import "PhotoMapper.h"
 #import "Photo.h"
 #import "CollectionViewDataSource.h"
+#import "PhotoViewController.h"
 
 static NSString *const SEGUE_ID = @"SHOW_PHOTO";
 static CGFloat const DEFAULT_SPACE = 8.0f;
@@ -21,14 +22,14 @@ static CGFloat const NUMBER_OF_ITEMS_PER_ROW = 3;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) CollectionViewDataSource *dataSource;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
+@property (nonatomic) NSArray *photoObjects;
+@property (nonatomic) Photo *photoToPass;
 
 - (IBAction)logout:(id)sender;
 
 @end
 
-@implementation PreviewViewController {
-    NSArray *photoObjects;
-}
+@implementation PreviewViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,7 +40,7 @@ static CGFloat const NUMBER_OF_ITEMS_PER_ROW = 3;
 
 - (void)getPhotoList {
     [APIClient getPhotoListWithSuccess:^(NSArray *photos) {
-        photoObjects = [self getPhotoObjectsFromAPIArray:photos];
+        self.photoObjects = [self getPhotoObjectsFromAPIArray:photos];
         [self showPhotoObjectsInCollectionView];
     } failure:^(NSError *error) {
         NSLog(@"error:\n %@", error.localizedDescription);
@@ -72,14 +73,23 @@ static CGFloat const NUMBER_OF_ITEMS_PER_ROW = 3;
 #pragma mark - Collection View Data Source
 
 - (void)getDataSource {
-    self.dataSource = [[CollectionViewDataSource alloc] initWithPhotoArray:photoObjects];
+    self.dataSource = [[CollectionViewDataSource alloc] initWithPhotoArray:self.photoObjects];
     self.collectionView.dataSource = self.dataSource;
 }
 
 #pragma mark - Collection View Delegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    self.photoToPass = self.photoObjects[indexPath.row];
     [self performSegueWithIdentifier:SEGUE_ID sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:SEGUE_ID]) {
+        PhotoViewController *photoViewController = segue.destinationViewController;
+        photoViewController.photo = self.photoToPass;
+        photoViewController.photos = self.photoObjects;
+    }
 }
 
 #pragma mark - Photo Image Size
