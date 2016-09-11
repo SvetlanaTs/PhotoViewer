@@ -12,5 +12,6 @@
 @interface CollectionViewUtilities : NSObject
 
 + (void)collectionView:(UICollectionView *)collectionView itemSizeOfFlowLayout:(UICollectionViewFlowLayout *)flowLayout withDefaultSpace:(CGFloat)defaultSpace numberOfItemsPerRow:(CGFloat)numberOfItemsPerRow;
++ (void)collectionView:(UICollectionView *)collectionView centerItemOfFlowLayout:(UICollectionViewFlowLayout *)flowLayout atIndexPath:(NSIndexPath *)indexPath;
 
 @end

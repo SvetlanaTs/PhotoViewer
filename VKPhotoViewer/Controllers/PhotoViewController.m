@@ -7,12 +7,13 @@
 //
 
 #import "PhotoViewController.h"
-#import "Photo.h"
 #import "PhotoDataSource.h"
+#import "CollectionViewUtilities.h"
 
-@interface PhotoViewController () <UICollectionViewDelegate>
+@interface PhotoViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) PhotoDataSource *dataSource;
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
 @end
 
@@ -21,31 +22,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self getDataSource];
+    [self centerPhotoOnScreen];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [self.view layoutIfNeeded];
-    [self.collectionView scrollToItemAtIndexPath:self.indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
-
+- (void)centerPhotoOnScreen {
     dispatch_async(dispatch_get_main_queue(), ^{
-
-        [self.collectionView reloadData];
+        [CollectionViewUtilities collectionView:self.collectionView centerItemOfFlowLayout:self.flowLayout atIndexPath:self.indexPath];
     });
-
-
 }
 
 #pragma mark - Collection View Data Source
 
 - (void)getDataSource {
-    self.dataSource = [[PhotoDataSource alloc] initWithPhotos:self.photos selectedPhoto:self.photo];
+    self.dataSource = [[PhotoDataSource alloc] initWithPhotos:self.photos];
     self.collectionView.dataSource = self.dataSource;
 }
-
-#pragma mark - Collection View Delegate
-
-//- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-//    [self.collectionView scrollToItemAtIndexPath:self.indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
-//}
 
 @end

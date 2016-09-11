@@ -23,11 +23,10 @@ static NSString *const CELL_ID = @"PHOTO_CELL";
 
 @implementation PhotoDataSource
 
-- (instancetype)initWithPhotos:(NSArray *)photos selectedPhoto:(Photo *)selectedPhoto {
+- (instancetype)initWithPhotos:(NSArray *)photos {
     self = [super init];
     if (self) {
         self.photos = photos;
-        self.selectedPhoto = selectedPhoto;
         self.cache = [NSCache new];
     }
     return self;

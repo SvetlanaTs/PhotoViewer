@@ -12,6 +12,6 @@
 
 @interface PhotoDataSource : NSObject <UICollectionViewDataSource>
 
-- (instancetype)initWithPhotos:(NSArray *)photos selectedPhoto:(Photo *)selectedPhoto;
+- (instancetype)initWithPhotos:(NSArray *)photos;
 
 @end

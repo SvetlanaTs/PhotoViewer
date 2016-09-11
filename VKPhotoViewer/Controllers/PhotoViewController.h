@@ -7,12 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Photo;
 
 @interface PhotoViewController : UIViewController
 
 @property (nonatomic) NSArray *photos;
-@property (nonatomic) Photo *photo;
 @property (nonatomic) NSIndexPath *indexPath;
 
 @end

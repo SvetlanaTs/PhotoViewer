@@ -19,4 +19,13 @@
     collectionView.contentInset = UIEdgeInsetsMake(defaultSpace, defaultSpace, defaultSpace, defaultSpace);
 }
 
++ (void)collectionView:(UICollectionView *)collectionView centerItemOfFlowLayout:(UICollectionViewFlowLayout *)flowLayout atIndexPath:(NSIndexPath *)indexPath {
+    CGPoint proposedOffset = CGPointMake(0, 0);
+    CGFloat offsetByXToCenterPhoto = (collectionView.frame.size.width - (flowLayout.itemSize.width + 2 * flowLayout.minimumLineSpacing)) / 2;
+    proposedOffset.x = indexPath.item * (flowLayout.itemSize.width + flowLayout.minimumLineSpacing) - offsetByXToCenterPhoto;
+    CGPoint contentOffset = [flowLayout targetContentOffsetForProposedContentOffset:proposedOffset];
+    
+    [collectionView setContentOffset:contentOffset animated:NO];
+}
+
 @end

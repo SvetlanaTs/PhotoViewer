@@ -35,7 +35,7 @@
         <!--Preview View Controller-->
         <scene sceneID="gzB-sk-NII">
             <objects>
-                <viewController id="ItG-eA-TIz" customClass="PreviewViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="ItG-eA-TIz" customClass="PreviewViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k3u-98-3Dn"/>
                         <viewControllerLayoutGuide type="bottom" id="sbK-fx-Twf"/>
@@ -55,7 +55,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="THUMBNAIL_CELL" id="fJJ-Q0-weg" customClass="ThumbnailCell">
-                                        <rect key="frame" x="0.0" y="64" width="120" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -112,7 +112,7 @@
         <!--Photo View Controller-->
         <scene sceneID="C30-n5-axT">
             <objects>
-                <viewController id="aBw-wM-RAu" customClass="PhotoViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="aBw-wM-RAu" customClass="PhotoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aOC-Xw-wdy"/>
                         <viewControllerLayoutGuide type="bottom" id="Z4C-8a-rrg"/>
@@ -132,7 +132,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PHOTO_CELL" id="pJQ-36-hfg" customClass="PhotoCell">
-                                        <rect key="frame" x="20" y="142" width="260" height="380"/>
+                                        <rect key="frame" x="20" y="110" width="260" height="380"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="260" height="380"/>
@@ -193,6 +193,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="29o-qa-RPM" id="Jut-DH-zNO"/>
+                        <outlet property="flowLayout" destination="aNY-Rq-GHA" id="Bes-rI-RYo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtC-8H-Ahi" userLabel="First Responder" sceneMemberID="firstResponder"/>

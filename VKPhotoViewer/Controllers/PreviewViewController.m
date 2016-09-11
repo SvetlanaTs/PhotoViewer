@@ -24,7 +24,6 @@ static CGFloat const NUMBER_OF_ITEMS_PER_ROW = 3;
 @property (nonatomic) CollectionViewDataSource *dataSource;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic) NSArray *photoObjects;
-@property (nonatomic) Photo *photoToPass;
 @property (nonatomic) NSIndexPath *selectedIndexPath;
 
 - (IBAction)logout:(id)sender;
@@ -82,7 +81,6 @@ static CGFloat const NUMBER_OF_ITEMS_PER_ROW = 3;
 #pragma mark - Collection View Delegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    self.photoToPass = self.photoObjects[indexPath.row];
     self.selectedIndexPath = indexPath;
     [self performSegueWithIdentifier:SEGUE_ID sender:self];
 }
@@ -90,7 +88,6 @@ static CGFloat const NUMBER_OF_ITEMS_PER_ROW = 3;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:SEGUE_ID]) {
         PhotoViewController *photoViewController = segue.destinationViewController;
-        photoViewController.photo = self.photoToPass;
         photoViewController.photos = self.photoObjects;
         photoViewController.indexPath = self.selectedIndexPath;
     }
