@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@class Photo;
 
 @interface PhotoDataSource : NSObject <UICollectionViewDataSource>
 

@@ -21,10 +21,4 @@
     }];
 }
 
-+ (void)getPhotoListFromURLSession {
-    
-}
-
-
-
 @end

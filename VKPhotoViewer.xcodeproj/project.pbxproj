@@ -132,11 +132,11 @@
 				DA15F25D1D7DDD15008E6310 /* Controllers */,
 				DA15F2491D7DDCF7008E6310 /* AppDelegate.h */,
 				DA15F24A1D7DDCF7008E6310 /* AppDelegate.m */,
+				DAC289731D82A0DD00B79731 /* PhotoViewer.storyboard */,
 				DA15F2521D7DDCF7008E6310 /* Assets.xcassets */,
 				DA15F2541D7DDCF7008E6310 /* LaunchScreen.storyboard */,
 				DA15F2571D7DDCF7008E6310 /* Info.plist */,
 				DA15F2461D7DDCF7008E6310 /* Supporting Files */,
-				DAC289731D82A0DD00B79731 /* PhotoViewer.storyboard */,
 			);
 			path = VKPhotoViewer;
 			sourceTree = "<group>";

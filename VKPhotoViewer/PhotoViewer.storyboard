@@ -64,17 +64,23 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cZn-HI-SaJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                 </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zsA-xG-UYk">
+                                                    <rect key="frame" x="50" y="50" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="cZn-HI-SaJ" secondAttribute="trailing" id="1oM-p9-Pzo"/>
                                             <constraint firstAttribute="bottom" secondItem="cZn-HI-SaJ" secondAttribute="bottom" id="2c4-xe-XUs"/>
+                                            <constraint firstItem="zsA-xG-UYk" firstAttribute="centerY" secondItem="fJJ-Q0-weg" secondAttribute="centerY" id="46r-1F-eSa"/>
                                             <constraint firstItem="cZn-HI-SaJ" firstAttribute="top" secondItem="fJJ-Q0-weg" secondAttribute="top" id="Cey-Ru-4ke"/>
+                                            <constraint firstItem="zsA-xG-UYk" firstAttribute="centerX" secondItem="fJJ-Q0-weg" secondAttribute="centerX" id="J9s-tT-IZH"/>
                                             <constraint firstItem="cZn-HI-SaJ" firstAttribute="leading" secondItem="fJJ-Q0-weg" secondAttribute="leading" id="LRE-mI-Djj"/>
                                         </constraints>
                                         <size key="customSize" width="120" height="120"/>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="zsA-xG-UYk" id="tEK-DU-w4q"/>
                                             <outlet property="imageView" destination="cZn-HI-SaJ" id="pJf-Zu-Gvv"/>
                                         </connections>
                                     </collectionViewCell>
@@ -149,6 +155,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="260" height="380"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dKb-5z-wXS">
+                                                    <rect key="frame" x="120" y="180" width="20" height="20"/>
+                                                </activityIndicatorView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e0O-Wt-pF8">
                                                     <rect key="frame" x="0.0" y="0.0" width="260" height="380"/>
                                                 </imageView>
@@ -177,13 +186,18 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="e0O-Wt-pF8" secondAttribute="trailing" id="06w-W5-ogG"/>
                                             <constraint firstAttribute="bottom" secondItem="ZKJ-o7-tjv" secondAttribute="bottom" id="EW0-Dd-giT"/>
+                                            <constraint firstAttribute="trailing" secondItem="dKb-5z-wXS" secondAttribute="trailing" constant="120" id="O02-hn-hhC"/>
+                                            <constraint firstItem="dKb-5z-wXS" firstAttribute="leading" secondItem="pJQ-36-hfg" secondAttribute="leading" constant="120" id="PbS-sU-XTR"/>
                                             <constraint firstItem="e0O-Wt-pF8" firstAttribute="top" secondItem="pJQ-36-hfg" secondAttribute="top" id="RfC-TG-prc"/>
                                             <constraint firstItem="ZKJ-o7-tjv" firstAttribute="leading" secondItem="pJQ-36-hfg" secondAttribute="leading" id="RxA-vi-Uvd"/>
                                             <constraint firstAttribute="trailing" secondItem="ZKJ-o7-tjv" secondAttribute="trailing" id="ciI-Xa-lP3"/>
                                             <constraint firstAttribute="bottom" secondItem="e0O-Wt-pF8" secondAttribute="bottom" id="dxT-iE-U6y"/>
+                                            <constraint firstItem="ZKJ-o7-tjv" firstAttribute="top" secondItem="dKb-5z-wXS" secondAttribute="bottom" constant="136" id="gDw-vv-h5e"/>
                                             <constraint firstItem="e0O-Wt-pF8" firstAttribute="leading" secondItem="pJQ-36-hfg" secondAttribute="leading" id="lsD-Fn-JMG"/>
+                                            <constraint firstItem="dKb-5z-wXS" firstAttribute="top" secondItem="pJQ-36-hfg" secondAttribute="top" constant="180" id="yFl-I7-Nda"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="dKb-5z-wXS" id="o4O-rK-sfm"/>
                                             <outlet property="dateLabel" destination="UBP-RY-nhR" id="lqY-xv-HMI"/>
                                             <outlet property="imageView" destination="e0O-Wt-pF8" id="VtL-bJ-dtg"/>
                                         </connections>

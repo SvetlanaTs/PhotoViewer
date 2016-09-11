@@ -44,23 +44,30 @@ static NSString *const CELL_ID = @"PHOTO_CELL";
         cell = [PhotoCell new];
     }
     
+    [cell.activityIndicator stopAnimating];
+    
     Photo *photo = self.photos[indexPath.item];
     cell.dateLabel.text = [self formatDate:photo.date];
 
     NSString *cacheKey = [NSString stringWithFormat:@"%li", indexPath.item];
     
+    [cell.activityIndicator startAnimating];
+    
     if ([[AppCache sharedInstance] objectForKey:cacheKey]) {
+        [cell.activityIndicator stopAnimating];
         cell.imageView.image = [[AppCache sharedInstance] objectForKey:cacheKey];
     } else {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:photo.photo]]];
             dispatch_async(dispatch_get_main_queue(), ^{
+                [cell.activityIndicator stopAnimating];
                 cell.imageView.image = image;
                 if (image != nil) [[AppCache sharedInstance] saveObject:image forKey:cacheKey];
             });
         });
     }
-    
+    cell.activityIndicator.hidesWhenStopped = YES;
+
     return cell;
 }
 
