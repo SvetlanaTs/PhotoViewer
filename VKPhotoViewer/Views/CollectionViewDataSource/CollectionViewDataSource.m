@@ -32,7 +32,7 @@ static NSString *const CELL_ID = @"THUMBNAIL_CELL";
 #pragma mark - Collection View Data Source
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.photoArray.count;
+    return (self.photoArray == nil) ? 0 : self.photoArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

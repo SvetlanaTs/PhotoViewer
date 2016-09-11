@@ -18,6 +18,7 @@
 static NSString *const SEGUE_ID = @"SHOW_PHOTO";
 static CGFloat const DEFAULT_SPACE = 8.0f;
 static CGFloat const NUMBER_OF_ITEMS_PER_ROW = 3;
+static NSString *const INFO_TEXT = @"No Data Available";
 
 @interface PreviewViewController () <UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -25,6 +26,7 @@ static CGFloat const NUMBER_OF_ITEMS_PER_ROW = 3;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic) NSArray *photoObjects;
 @property (nonatomic) NSIndexPath *selectedIndexPath;
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 
 - (IBAction)logout:(id)sender;
 
@@ -41,8 +43,13 @@ static CGFloat const NUMBER_OF_ITEMS_PER_ROW = 3;
 
 - (void)getPhotoList {
     [APIClient getPhotoListWithSuccess:^(NSArray *photos) {
-        self.photoObjects = [self getPhotoObjectsFromAPIArray:photos];
-        [self showPhotoObjectsInCollectionView];
+        if (photos == nil) {
+            self.infoLabel.hidden = NO;
+            self.infoLabel.text = INFO_TEXT;
+        } else {
+            self.photoObjects = [self getPhotoObjectsFromAPIArray:photos];
+            [self showPhotoObjectsInCollectionView];
+        }
     } failure:^(NSError *error) {
         NSLog(@"error:\n %@", error.localizedDescription);
     }];

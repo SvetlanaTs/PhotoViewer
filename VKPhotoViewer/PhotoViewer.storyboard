@@ -83,12 +83,22 @@
                                     <outlet property="delegate" destination="ItG-eA-TIz" id="nZs-nl-wzh"/>
                                 </connections>
                             </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XR2-6Z-Pbn">
+                                <rect key="frame" x="0.0" y="32" width="600" height="536"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="XR2-6Z-Pbn" firstAttribute="top" secondItem="XFC-oC-hdB" secondAttribute="top" constant="32" id="7me-uI-mfL"/>
                             <constraint firstAttribute="trailing" secondItem="Wrz-m7-ffX" secondAttribute="trailing" id="COl-dG-pLa"/>
                             <constraint firstItem="sbK-fx-Twf" firstAttribute="top" secondItem="Wrz-m7-ffX" secondAttribute="bottom" id="INg-ZI-GSb"/>
+                            <constraint firstItem="XR2-6Z-Pbn" firstAttribute="leading" secondItem="XFC-oC-hdB" secondAttribute="leading" id="SuM-RA-EY7"/>
                             <constraint firstItem="Wrz-m7-ffX" firstAttribute="leading" secondItem="XFC-oC-hdB" secondAttribute="leading" id="V9N-JJ-T0q"/>
+                            <constraint firstAttribute="trailing" secondItem="XR2-6Z-Pbn" secondAttribute="trailing" id="c0s-S9-1gh"/>
+                            <constraint firstItem="sbK-fx-Twf" firstAttribute="top" secondItem="XR2-6Z-Pbn" secondAttribute="bottom" constant="32" id="fY7-o5-Ibl"/>
                             <constraint firstItem="Wrz-m7-ffX" firstAttribute="top" secondItem="k3u-98-3Dn" secondAttribute="bottom" id="zAQ-27-P2e"/>
                         </constraints>
                     </view>
@@ -102,6 +112,7 @@
                     <connections>
                         <outlet property="collectionView" destination="Wrz-m7-ffX" id="5lH-bf-UMI"/>
                         <outlet property="flowLayout" destination="Ad4-xk-LqQ" id="Zvs-ph-VPN"/>
+                        <outlet property="infoLabel" destination="XR2-6Z-Pbn" id="tIZ-Lz-Xpp"/>
                         <segue destination="aBw-wM-RAu" kind="show" identifier="SHOW_PHOTO" id="X1v-f2-nef"/>
                     </connections>
                 </viewController>
