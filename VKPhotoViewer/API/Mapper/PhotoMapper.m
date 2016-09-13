@@ -16,13 +16,16 @@ static NSString *const THUMBNAIL_SIZE = @"photo_604";
 
 - (Photo *)mapPhotoFromDictionary:(NSDictionary *)dict {
     Photo *photo = [Photo new];
-    photo.photoId = dict[@"id"];
-    photo.photo = dict[PHOTO_SIZE];
-    photo.thumbnail = dict[THUMBNAIL_SIZE];
-    photo.text = dict[@"text"];
     
-    NSNumber *interval = dict[@"date"];
-    photo.date = [NSDate dateWithTimeIntervalSince1970:[interval doubleValue]];
+    if ([dict[@"id"] isKindOfClass:[NSNumber class]])               photo.photoId = dict[@"id"];
+    if ([dict[PHOTO_SIZE] isKindOfClass:[NSString class]])          photo.photo = dict[PHOTO_SIZE];
+    if ([dict[THUMBNAIL_SIZE] isKindOfClass:[NSString class]])      photo.thumbnail = dict[THUMBNAIL_SIZE];
+    if ([dict[@"text"] isKindOfClass:[NSString class]])             photo.text = dict[@"text"];
+    
+    if ([dict[@"date"] isKindOfClass:[NSNumber class]]) {
+        NSNumber *interval = dict[@"date"];
+        photo.date = [NSDate dateWithTimeIntervalSince1970:[interval doubleValue]];
+    }
     
     return photo;
 }
