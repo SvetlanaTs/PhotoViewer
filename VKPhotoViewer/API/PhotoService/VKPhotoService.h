@@ -1,5 +1,5 @@
 //
-//  APIClient.h
+//  VKPhotoService.h
 //  VKPhotoViewer
 //
 //  Created by Svetlana on 09.09.16.
@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PhotoServicing.h"
 
-@interface APIClient : NSObject
-
-+ (void)getPhotoListWithCompletion:(void (^)(NSArray *photos))completion;
+@interface VKPhotoService : NSObject <PhotoServicing>
 
 @end

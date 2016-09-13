@@ -26,7 +26,7 @@
 		DAC289781D82AB9000B79731 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC289771D82AB9000B79731 /* Photo.m */; };
 		DAC2897B1D82AF4400B79731 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2897A1D82AF4400B79731 /* APIClient.m */; };
 		DAC2897F1D82B9A900B79731 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2897E1D82B9A900B79731 /* PhotoCell.m */; };
-		DAC289831D82BC8B00B79731 /* PhotoService.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC289821D82BC8B00B79731 /* PhotoService.m */; };
+		DAC289831D82BC8B00B79731 /* VKPhotoService.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC289821D82BC8B00B79731 /* VKPhotoService.m */; };
 		DAC289871D82C11700B79731 /* PhotoMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC289861D82C11700B79731 /* PhotoMapper.m */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +45,7 @@
 		DA15F25F1D7DDD3F008E6310 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controllers/LoginViewController.m; sourceTree = "<group>"; };
 		DA1F4D051D83011E00DCF83F /* CollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionViewDataSource.h; path = Views/CollectionViewDataSource/CollectionViewDataSource.h; sourceTree = "<group>"; };
 		DA1F4D061D83011E00DCF83F /* CollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionViewDataSource.m; path = Views/CollectionViewDataSource/CollectionViewDataSource.m; sourceTree = "<group>"; };
+		DA4E625F1D887BB600A88E86 /* PhotoServicing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PhotoServicing.h; path = API/PhotoService/PhotoServicing.h; sourceTree = "<group>"; };
 		DA581EB61D833A9700C307FB /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoViewController.h; path = Controllers/PhotoViewController.h; sourceTree = "<group>"; };
 		DA581EB71D833A9700C307FB /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoViewController.m; path = Controllers/PhotoViewController.m; sourceTree = "<group>"; };
 		DA581EB91D8401A400C307FB /* ThumbnailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThumbnailCell.h; path = CollectionCell/ThumbnailCell.h; sourceTree = "<group>"; };
@@ -68,8 +69,8 @@
 		DAC2897A1D82AF4400B79731 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIClient.m; path = API/APIClient.m; sourceTree = "<group>"; };
 		DAC2897D1D82B9A900B79731 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoCell.h; path = CollectionCell/PhotoCell.h; sourceTree = "<group>"; };
 		DAC2897E1D82B9A900B79731 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoCell.m; path = CollectionCell/PhotoCell.m; sourceTree = "<group>"; };
-		DAC289811D82BC8B00B79731 /* PhotoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoService.h; path = API/PhotoService/PhotoService.h; sourceTree = "<group>"; };
-		DAC289821D82BC8B00B79731 /* PhotoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoService.m; path = API/PhotoService/PhotoService.m; sourceTree = "<group>"; };
+		DAC289811D82BC8B00B79731 /* VKPhotoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKPhotoService.h; path = API/PhotoService/VKPhotoService.h; sourceTree = "<group>"; };
+		DAC289821D82BC8B00B79731 /* VKPhotoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKPhotoService.m; path = API/PhotoService/VKPhotoService.m; sourceTree = "<group>"; };
 		DAC289851D82C11700B79731 /* PhotoMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoMapper.h; path = API/Mapper/PhotoMapper.h; sourceTree = "<group>"; };
 		DAC289861D82C11700B79731 /* PhotoMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoMapper.m; path = API/Mapper/PhotoMapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -278,8 +279,9 @@
 		DAC289801D82BBB100B79731 /* PhotoService */ = {
 			isa = PBXGroup;
 			children = (
-				DAC289811D82BC8B00B79731 /* PhotoService.h */,
-				DAC289821D82BC8B00B79731 /* PhotoService.m */,
+				DAC289811D82BC8B00B79731 /* VKPhotoService.h */,
+				DAC289821D82BC8B00B79731 /* VKPhotoService.m */,
+				DA4E625F1D887BB600A88E86 /* PhotoServicing.h */,
 			);
 			name = PhotoService;
 			sourceTree = "<group>";
@@ -420,7 +422,7 @@
 				DA581EC01D84382C00C307FB /* PhotoDataSource.m in Sources */,
 				DA581EC91D84B4BE00C307FB /* CollectionViewUtilities.m in Sources */,
 				DA15F24B1D7DDCF7008E6310 /* AppDelegate.m in Sources */,
-				DAC289831D82BC8B00B79731 /* PhotoService.m in Sources */,
+				DAC289831D82BC8B00B79731 /* VKPhotoService.m in Sources */,
 				DA15F2481D7DDCF7008E6310 /* main.m in Sources */,
 				DAC2896C1D81E96600B79731 /* VKLoginService.m in Sources */,
 				DA581EB81D833A9700C307FB /* PhotoViewController.m in Sources */,

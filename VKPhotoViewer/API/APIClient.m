@@ -7,17 +7,13 @@
 //
 
 #import "APIClient.h"
-#import "PhotoService.h"
+#import "VKPhotoService.h"
 
 @implementation APIClient
 
-+ (void)getPhotoListWithSuccess:(void (^)(NSArray *photos))success
-                        failure:(void(^)(NSError *error))failure {
-
-    [PhotoService getPhotoListFromVKRequestWithSuccess:^(NSArray *photos) {
-        success(photos);
-    } failure:^(NSError *error) {
-        failure(error);
++ (void)getPhotoListWithCompletion:(void (^)(NSArray *photos))completion {
+    [VKPhotoService getPhotoListWithCompletion:^(NSArray *photos) {
+        completion(photos);
     }];
 }
 

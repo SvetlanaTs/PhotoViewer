@@ -42,7 +42,7 @@ static NSString *const INFO_TEXT = @"No Data Available";
 #pragma mark - Photo List
 
 - (void)getPhotoList {
-    [APIClient getPhotoListWithSuccess:^(NSArray *photos) {
+    [APIClient getPhotoListWithCompletion:^(NSArray *photos) {
         if (photos == nil) {
             self.infoLabel.hidden = NO;
             self.infoLabel.text = INFO_TEXT;
@@ -50,8 +50,6 @@ static NSString *const INFO_TEXT = @"No Data Available";
             self.photoObjects = [self getPhotoObjectsFromAPIArray:photos];
             [self showPhotoObjectsInCollectionView];
         }
-    } failure:^(NSError *error) {
-        NSLog(@"error:\n %@", error.localizedDescription);
     }];
 }
 
