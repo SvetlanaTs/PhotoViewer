@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <VK-ios-sdk/VKSdk.h>
+#import <UIKit/UIKit.h>
 
-@interface VKLoginService : NSObject <VKSdkDelegate, VKSdkUIDelegate>
+@interface VKLoginService : NSObject
 
 @property (nonatomic) UIViewController *viewController;
 

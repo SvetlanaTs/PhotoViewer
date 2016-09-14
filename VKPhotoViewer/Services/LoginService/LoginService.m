@@ -7,6 +7,7 @@
 //
 
 #import "LoginService.h"
+#import <VK-ios-sdk/VKSdk.h>
 
 static NSString *const VK_APP_ID = @"5597588";
 static NSArray *SCOPE = nil;

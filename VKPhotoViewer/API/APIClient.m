@@ -8,12 +8,22 @@
 
 #import "APIClient.h"
 #import "VKPhotoService.h"
+#import "PhotoMapper.h"
+#import "Photo.h"
 
 @implementation APIClient
 
 + (void)getPhotoListWithCompletion:(void (^)(NSArray *photos))completion {
+    PhotoMapper *mapper = [PhotoMapper new];
+
     [VKPhotoService getPhotoListWithCompletion:^(NSArray *photos) {
-        completion(photos);
+        NSMutableArray *photoArray = [NSMutableArray new];
+        for (NSDictionary *dict in photos) {
+            Photo *photo = [mapper mapPhotoFromDictionary:dict];
+            [photoArray addObject:photo];
+        }
+        NSArray *photoObjectArray = [NSArray arrayWithArray:photoArray];
+        completion(photoObjectArray);
     }];
 }
 

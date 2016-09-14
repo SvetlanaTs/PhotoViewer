@@ -9,7 +9,6 @@
 #import "PreviewViewController.h"
 #import "LoginService.h"
 #import "APIClient.h"
-#import "PhotoMapper.h"
 #import "Photo.h"
 #import "CollectionViewDataSource.h"
 #import "PhotoViewController.h"
@@ -47,24 +46,10 @@ static NSString *const INFO_TEXT = @"No Data Available";
             self.infoLabel.hidden = NO;
             self.infoLabel.text = INFO_TEXT;
         } else {
-            self.photoObjects = [self getPhotoObjectsFromAPIArray:photos];
+            self.photoObjects = photos;
             [self showPhotoObjectsInCollectionView];
         }
     }];
-}
-
-- (NSMutableArray *)getPhotoObjectsFromAPIArray:(NSArray *)APIArray {
-    NSMutableArray *array = [NSMutableArray new];
-    for (NSDictionary *dict in APIArray) {
-        Photo *photo = [self getPhoto:dict];
-        [array addObject:photo];
-    }
-    return array;
-}
-
-- (Photo *)getPhoto:(NSDictionary *)dictionary {
-    PhotoMapper *mapper = [PhotoMapper new];
-    return [mapper mapPhotoFromDictionary:dictionary];
 }
 
 - (void)showPhotoObjectsInCollectionView {

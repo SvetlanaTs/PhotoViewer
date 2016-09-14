@@ -7,6 +7,11 @@
 //
 
 #import "VKLoginService.h"
+#import <VK-ios-sdk/VKSdk.h>
+
+@interface VKLoginService () <VKSdkDelegate, VKSdkUIDelegate>
+
+@end
 
 @implementation VKLoginService
 
