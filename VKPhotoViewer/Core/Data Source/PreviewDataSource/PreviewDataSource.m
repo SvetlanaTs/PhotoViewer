@@ -6,20 +6,20 @@
 //  Copyright © 2016 Svetlana Tsetsorina. All rights reserved.
 //
 
-#import "CollectionViewDataSource.h"
+#import "PreviewDataSource.h"
 #import "ThumbnailCell.h"
 #import "Photo.h"
 #import "AppCache.h"
 
 static NSString *const CELL_ID = @"THUMBNAIL_CELL";
 
-@interface CollectionViewDataSource ()
+@interface PreviewDataSource ()
 
 @property (nonatomic) NSArray *photoArray;
 
 @end
 
-@implementation CollectionViewDataSource
+@implementation PreviewDataSource
 
 - (instancetype)initWithPhotoArray:(NSArray *)photoArray {
     self = [super init];

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface CollectionViewDataSource : NSObject <UICollectionViewDataSource>
+@interface PreviewDataSource : NSObject <UICollectionViewDataSource>
 
 - (instancetype)initWithPhotoArray:(NSArray *)photoArray;
 

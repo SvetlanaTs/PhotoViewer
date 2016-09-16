@@ -8,7 +8,7 @@
 
 #import "PreviewViewController.h"
 #import "APIClient.h"
-#import "CollectionViewDataSource.h"
+#import "PreviewDataSource.h"
 #import "PhotoViewController.h"
 #import "CollectionViewUtilities.h"
 
@@ -19,7 +19,7 @@ static NSString *const INFO_TEXT = @"No Data Available";
 
 @interface PreviewViewController () <UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic) CollectionViewDataSource *dataSource;
+@property (nonatomic) PreviewDataSource *dataSource;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic) NSArray *photoObjects;
 @property (nonatomic) NSIndexPath *selectedIndexPath;
@@ -62,7 +62,7 @@ static NSString *const INFO_TEXT = @"No Data Available";
 #pragma mark - Collection View Data Source
 
 - (void)getDataSource {
-    self.dataSource = [[CollectionViewDataSource alloc] initWithPhotoArray:self.photoObjects];
+    self.dataSource = [[PreviewDataSource alloc] initWithPhotoArray:self.photoObjects];
     self.collectionView.dataSource = self.dataSource;
 }
 
