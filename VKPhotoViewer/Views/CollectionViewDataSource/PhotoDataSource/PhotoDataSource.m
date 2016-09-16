@@ -17,7 +17,6 @@ static NSString *const CELL_ID = @"PHOTO_CELL";
 
 @property (nonatomic) NSArray *photos;
 @property (nonatomic) Photo *selectedPhoto;
-@property (nonatomic) NSCache *cache;
 
 @end
 
@@ -27,7 +26,6 @@ static NSString *const CELL_ID = @"PHOTO_CELL";
     self = [super init];
     if (self) {
         self.photos = photos;
-        self.cache = [NSCache new];
     }
     return self;
 }
@@ -44,12 +42,18 @@ static NSString *const CELL_ID = @"PHOTO_CELL";
         cell = [PhotoCell new];
     }
     
+    NSString *cacheKey = [NSString stringWithFormat:@"%li", indexPath.item];
+    
     [cell.activityIndicator stopAnimating];
     
     Photo *photo = self.photos[indexPath.item];
-    cell.dateLabel.text = [self formatDate:photo.date];
-
-    NSString *cacheKey = [NSString stringWithFormat:@"%li", indexPath.item];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSString *dateText = [self formatDate:photo.date];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cell.dateLabel.text = dateText;
+        });
+    });
     
     [cell.activityIndicator startAnimating];
     
