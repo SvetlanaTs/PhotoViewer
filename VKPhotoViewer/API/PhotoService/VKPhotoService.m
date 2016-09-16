@@ -13,7 +13,7 @@ static NSString *const VK_PHOTOS_METHOD = @"photos.getAll";
 
 @implementation VKPhotoService
 
-+ (void)getPhotoListWithCompletion:(void (^)(NSArray *photos))completion {
+- (void)getPhotoListWithCompletion:(void (^)(NSArray *photos))completion {
     VKRequest *photoRequest = [VKRequest requestWithMethod:VK_PHOTOS_METHOD parameters:@{VK_API_COUNT : @"200"}];
     
     [photoRequest executeWithResultBlock:^(VKResponse *response) {

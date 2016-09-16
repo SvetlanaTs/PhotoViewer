@@ -7,19 +7,50 @@
 //
 
 #import "APIClient.h"
+#import "VKLoginService.h"
 #import "VKPhotoService.h"
 #import "PhotoMapper.h"
 #import "Photo.h"
 
-@implementation APIClient
+@implementation APIClient {
+    VKLoginService *loginService;
+    VKPhotoService *photoService;
+    PhotoMapper *photoMapper;
+}
 
-+ (void)getPhotoListWithCompletion:(void (^)(NSArray *photos))completion {
-    PhotoMapper *mapper = [PhotoMapper new];
++ (APIClient *)sharedInstance {
+    static APIClient *sharedInstance = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [APIClient new];
+    });
+    return sharedInstance;
+}
 
-    [VKPhotoService getPhotoListWithCompletion:^(NSArray *photos) {
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        loginService = [VKLoginService new];
+        photoService = [VKPhotoService new];
+        photoMapper = [PhotoMapper new];
+    }
+    return self;
+}
+
+- (void)authorize {
+    [loginService authorize];
+}
+
+- (void)logout {
+    [loginService logout];
+}
+
+- (void)getPhotoListWithCompletion:(void (^)(NSArray *photos))completion {
+    [photoService getPhotoListWithCompletion:^(NSArray *photos) {
         NSMutableArray *photoArray = [NSMutableArray new];
         for (NSDictionary *dict in photos) {
-            Photo *photo = [mapper mapPhotoFromDictionary:dict];
+            Photo *photo = [photoMapper mapPhotoFromDictionary:dict];
             [photoArray addObject:photo];
         }
         NSArray *photoObjectArray = [NSArray arrayWithArray:photoArray];

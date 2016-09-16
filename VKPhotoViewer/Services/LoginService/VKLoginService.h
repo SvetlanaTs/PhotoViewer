@@ -7,14 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LoginServicing.h"
 #import <UIKit/UIKit.h>
 
-@interface VKLoginService : NSObject
-
-@property (nonatomic) UIViewController *viewController;
-
-- (instancetype)initWithAppID:(NSString *)appId scope:(NSArray *)scope;
-- (void)authorize:(NSArray *)scope;
-+ (void)logout;
+@interface VKLoginService : NSObject <LoginServicing>
 
 @end

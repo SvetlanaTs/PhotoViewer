@@ -9,11 +9,19 @@
 #import "VKLoginService.h"
 #import <VK-ios-sdk/VKSdk.h>
 
+static NSString *const VK_APP_ID = @"5597588";
+static NSArray *SCOPE = nil;
+
 @interface VKLoginService () <VKSdkDelegate, VKSdkUIDelegate>
 
 @end
 
 @implementation VKLoginService
+
+- (instancetype)init {
+    SCOPE = @[VK_PER_PHOTOS];
+    return [self initWithAppID:VK_APP_ID scope:SCOPE];
+}
 
 - (instancetype)initWithAppID:(NSString *)appId scope:(NSArray *)scope {
     self = [super init];
@@ -35,11 +43,11 @@
     return self;
 }
 
-- (void)authorize:(NSArray *)scope {
-    [VKSdk authorize:scope];
+- (void)authorize {
+    [VKSdk authorize:SCOPE];
 }
 
-+ (void)logout {
+- (void)logout {
     [VKSdk forceLogout];
 }
 
@@ -47,7 +55,7 @@
 
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
     if (result.token) {
-        [self.viewController dismissViewControllerAnimated:YES completion:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"DismissViewControllerAnimated" object:nil];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"PerformStartActionNotification" object:nil];
     } else if (result.error) {
         NSLog(@"result: %@", result.error.localizedDescription);
@@ -61,7 +69,7 @@
 #pragma mark - VK SDK UI Delegate
 
 - (void)vkSdkShouldPresentViewController:(UIViewController *)controller {
-    [self.viewController presentViewController:controller animated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PresentViewController" object:controller];
 }
 
 - (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError {

@@ -7,9 +7,7 @@
 //
 
 #import "PreviewViewController.h"
-#import "LoginService.h"
 #import "APIClient.h"
-#import "Photo.h"
 #import "CollectionViewDataSource.h"
 #import "PhotoViewController.h"
 #import "CollectionViewUtilities.h"
@@ -41,7 +39,7 @@ static NSString *const INFO_TEXT = @"No Data Available";
 #pragma mark - Photo List
 
 - (void)getPhotoList {
-    [APIClient getPhotoListWithCompletion:^(NSArray *photos) {
+    [[APIClient sharedInstance] getPhotoListWithCompletion:^(NSArray *photos) {
         if (photos == nil) {
             self.infoLabel.hidden = NO;
             self.infoLabel.text = INFO_TEXT;
@@ -86,7 +84,7 @@ static NSString *const INFO_TEXT = @"No Data Available";
 #pragma mark - Logout
 
 - (IBAction)logout:(id)sender {
-    [LoginService logout];
+    [[APIClient sharedInstance] logout];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

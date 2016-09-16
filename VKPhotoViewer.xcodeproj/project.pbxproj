@@ -21,7 +21,6 @@
 		DA581EC91D84B4BE00C307FB /* CollectionViewUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DA581EC81D84B4BE00C307FB /* CollectionViewUtilities.m */; };
 		DA606CB51D7F55F400D9C58A /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA606CB41D7F55F400D9C58A /* PreviewViewController.m */; };
 		DAC2896C1D81E96600B79731 /* VKLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2896B1D81E96600B79731 /* VKLoginService.m */; };
-		DAC2896F1D81EE7300B79731 /* LoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2896E1D81EE7300B79731 /* LoginService.m */; };
 		DAC289741D82A0DD00B79731 /* PhotoViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC289731D82A0DD00B79731 /* PhotoViewer.storyboard */; };
 		DAC289781D82AB9000B79731 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC289771D82AB9000B79731 /* Photo.m */; };
 		DAC2897B1D82AF4400B79731 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC2897A1D82AF4400B79731 /* APIClient.m */; };
@@ -61,8 +60,6 @@
 		DA606CB41D7F55F400D9C58A /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreviewViewController.m; path = Controllers/PreviewViewController.m; sourceTree = "<group>"; };
 		DAC2896A1D81E96600B79731 /* VKLoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VKLoginService.h; path = Services/LoginService/VKLoginService.h; sourceTree = "<group>"; };
 		DAC2896B1D81E96600B79731 /* VKLoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VKLoginService.m; path = Services/LoginService/VKLoginService.m; sourceTree = "<group>"; };
-		DAC2896D1D81EE7300B79731 /* LoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginService.h; path = Services/LoginService/LoginService.h; sourceTree = "<group>"; };
-		DAC2896E1D81EE7300B79731 /* LoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginService.m; path = Services/LoginService/LoginService.m; sourceTree = "<group>"; };
 		DAC289731D82A0DD00B79731 /* PhotoViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoViewer.storyboard; sourceTree = "<group>"; };
 		DAC289761D82AB9000B79731 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Model/Photo.h; sourceTree = "<group>"; };
 		DAC289771D82AB9000B79731 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Model/Photo.m; sourceTree = "<group>"; };
@@ -134,9 +131,6 @@
 				DA15F2491D7DDCF7008E6310 /* AppDelegate.h */,
 				DA15F24A1D7DDCF7008E6310 /* AppDelegate.m */,
 				DAC289731D82A0DD00B79731 /* PhotoViewer.storyboard */,
-				DA15F2521D7DDCF7008E6310 /* Assets.xcassets */,
-				DA15F2541D7DDCF7008E6310 /* LaunchScreen.storyboard */,
-				DA15F2571D7DDCF7008E6310 /* Info.plist */,
 				DA15F2461D7DDCF7008E6310 /* Supporting Files */,
 			);
 			path = VKPhotoViewer;
@@ -145,6 +139,9 @@
 		DA15F2461D7DDCF7008E6310 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DA15F2521D7DDCF7008E6310 /* Assets.xcassets */,
+				DA15F2541D7DDCF7008E6310 /* LaunchScreen.storyboard */,
+				DA15F2571D7DDCF7008E6310 /* Info.plist */,
 				DA15F2471D7DDCF7008E6310 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -242,8 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				DAC289701D81EE8700B79731 /* VK */,
-				DAC2896D1D81EE7300B79731 /* LoginService.h */,
-				DAC2896E1D81EE7300B79731 /* LoginService.m */,
 				DA49734C1D89C4D40032B0B6 /* LoginServicing.h */,
 			);
 			name = LoginService;
@@ -420,7 +415,6 @@
 			files = (
 				DAC2897F1D82B9A900B79731 /* PhotoCell.m in Sources */,
 				DAC289781D82AB9000B79731 /* Photo.m in Sources */,
-				DAC2896F1D81EE7300B79731 /* LoginService.m in Sources */,
 				DA581EC01D84382C00C307FB /* PhotoDataSource.m in Sources */,
 				DA581EC91D84B4BE00C307FB /* CollectionViewUtilities.m in Sources */,
 				DA15F24B1D7DDCF7008E6310 /* AppDelegate.m in Sources */,

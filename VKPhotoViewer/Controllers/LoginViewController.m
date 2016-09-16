@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "PreviewViewController.h"
-#import "LoginService.h"
+#import "APIClient.h"
 
 static NSString *const SEGUE_ID = @"START_WORKING";
 
@@ -17,9 +17,7 @@ static NSString *const SEGUE_ID = @"START_WORKING";
 
 @end
 
-@implementation LoginViewController {
-    LoginService *loginService;
-}
+@implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,18 +27,27 @@ static NSString *const SEGUE_ID = @"START_WORKING";
 #pragma mark - Login Service
 
 - (void)initializeLoginService {
-    loginService = [[LoginService alloc] initWithViewController:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startWorking) name:@"PerformStartActionNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissViewController) name:@"DismissViewController" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentViewController:) name:@"PresentViewController" object:nil];
 }
 
 - (void)startWorking {
     [self performSegueWithIdentifier:SEGUE_ID sender:self];
 }
 
+- (void)dismissViewController{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)presentViewController:(NSNotification *)notification {
+    [self presentViewController:notification.object animated:YES completion:nil];
+}
+
 #pragma mark - Login
 
 - (IBAction)login:(id)sender {
-    [loginService authorize];
+    [[APIClient sharedInstance] authorize];
 }
 
 @end

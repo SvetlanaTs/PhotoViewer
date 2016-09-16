@@ -13,6 +13,6 @@
 
 @protocol PhotoServicing <NSObject>
 
-+ (void)getPhotoListWithCompletion:(void (^)(NSArray *photos))completion;
+- (void)getPhotoListWithCompletion:(void (^)(NSArray *photos))completion;
 
 @end

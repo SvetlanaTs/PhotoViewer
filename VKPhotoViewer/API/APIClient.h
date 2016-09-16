@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface APIClient : NSObject
 
-+ (void)getPhotoListWithCompletion:(void (^)(NSArray *photos))completion;
++ (APIClient *)sharedInstance;
+- (void)authorize;
+- (void)logout;
+- (void)getPhotoListWithCompletion:(void (^)(NSArray *photos))completion;
 
 @end
